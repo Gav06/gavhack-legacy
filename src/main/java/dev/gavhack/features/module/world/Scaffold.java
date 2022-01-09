@@ -13,7 +13,7 @@ import org.lwjgl.input.Keyboard;
 
 public class Scaffold extends Module {
     public Scaffold() {
-        super("Scaffold", Category.WORLD, Keyboard.KEY_N);
+        super("Scaffold", Category.WORLD);
     }
 
     public static final Setting<Boolean> stopSprint = new Setting<>("StopSprint", true);

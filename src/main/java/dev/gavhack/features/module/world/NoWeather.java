@@ -8,6 +8,6 @@ public class NoWeather extends Module {
 
     public NoWeather() {
         // TODO: remove all the stupid forced keybinds
-        super("NoWeather", Category.WORLD, Keyboard.KEY_R);
+        super("NoWeather", Category.WORLD);
     }
 }

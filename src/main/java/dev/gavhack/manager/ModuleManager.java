@@ -3,18 +3,14 @@ package dev.gavhack.manager;
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.features.module.combat.Criticals;
-import dev.gavhack.features.module.combat.ForceField;
-import dev.gavhack.features.module.movement.*;
-import dev.gavhack.features.module.render.ChestESP;
-import dev.gavhack.features.module.render.Fullbright;
-import dev.gavhack.features.module.render.Tracers;
-import dev.gavhack.features.module.render.Wallhack;
-import dev.gavhack.features.module.world.NoWeather;
 import dev.gavhack.event.EventKeyPress;
-import dev.gavhack.features.module.client.ClickGui;
-import dev.gavhack.features.module.world.Scaffold;
 import net.minecraft.src.Minecraft;
+
+import dev.gavhack.features.module.combat.*;
+import dev.gavhack.features.module.movement.*;
+import dev.gavhack.features.module.render.*;
+import dev.gavhack.features.module.world.*;
+import dev.gavhack.features.module.client.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -40,7 +36,7 @@ public class ModuleManager {
         register(new AntiKnockback());
         register(new NoWeather());
         register(new ChestESP());
-        register(new ForceField());
+        register(new KillAura());
         register(new Wallhack());
         register(new Criticals());
         register(new NoFall());
@@ -50,6 +46,8 @@ public class ModuleManager {
         register(new Speed());
         register(new ClickGui());
         register(new Scaffold());
+        register(new ForceField());
+        register(new Retard());
 
         modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);
