@@ -3,6 +3,7 @@ package gavhack.module;
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
 import gavhack.event.EventKeyPress;
+import gavhack.module.client.ClickGui;
 import gavhack.module.combat.*;
 import gavhack.module.movement.*;
 import gavhack.module.render.*;
@@ -34,6 +35,7 @@ public class ModuleManager {
         register(new Criticals());
         register(new NoFall());
         register(new Tracers());
+        register(new ClickGui());
 
         modules.forEach(Module::registerSettings);
     }
