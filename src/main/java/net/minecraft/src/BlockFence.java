@@ -17,12 +17,12 @@ public class BlockFence extends Block
      * Adds all intersecting collision boxes to a list. (Be sure to only add boxes to the list if they intersect the
      * mask.) Parameters: World, X, Y, Z, mask, list, colliding entity
      */
-    public void addCollisionBoxesToList(World par1World, int par2, int par3, int par4, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity)
+    public void addCollisionBoxesToList(World par1World, int x, int y, int z, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity)
     {
-        boolean var8 = this.canConnectFenceTo(par1World, par2, par3, par4 - 1);
-        boolean var9 = this.canConnectFenceTo(par1World, par2, par3, par4 + 1);
-        boolean var10 = this.canConnectFenceTo(par1World, par2 - 1, par3, par4);
-        boolean var11 = this.canConnectFenceTo(par1World, par2 + 1, par3, par4);
+        boolean var8 = this.canConnectFenceTo(par1World, x, y, z - 1);
+        boolean var9 = this.canConnectFenceTo(par1World, x, y, z + 1);
+        boolean var10 = this.canConnectFenceTo(par1World, x - 1, y, z);
+        boolean var11 = this.canConnectFenceTo(par1World, x + 1, y, z);
         float var12 = 0.375F;
         float var13 = 0.625F;
         float var14 = 0.375F;
@@ -41,7 +41,7 @@ public class BlockFence extends Block
         if (var8 || var9)
         {
             this.setBlockBounds(var12, 0.0F, var14, var13, 1.5F, var15);
-            super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+            super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
         }
 
         var14 = 0.375F;
@@ -60,7 +60,7 @@ public class BlockFence extends Block
         if (var10 || var11 || !var8 && !var9)
         {
             this.setBlockBounds(var12, 0.0F, var14, var13, 1.5F, var15);
-            super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+            super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
         }
 
         if (var8)

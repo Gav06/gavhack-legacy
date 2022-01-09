@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import gavhack.Gavhack;
+
 import java.util.Random;
 
 public abstract class BlockFluid extends Block
@@ -159,8 +161,14 @@ public abstract class BlockFluid extends Block
      * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
      * cleared to be reused)
      */
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)
     {
+        if (Gavhack.getInstance().getModuleManager().getModule("Jesus").isEnabled()) {
+            return AxisAlignedBB.getBoundingBox(
+                    x + this.minX, y + this.minY, z + this.minZ,
+                    x + this.maxX, y + this.maxY, z + this.maxZ);
+        }
+
         return null;
     }
 

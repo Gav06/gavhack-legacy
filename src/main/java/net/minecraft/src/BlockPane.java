@@ -74,30 +74,30 @@ public class BlockPane extends Block
      * Adds all intersecting collision boxes to a list. (Be sure to only add boxes to the list if they intersect the
      * mask.) Parameters: World, X, Y, Z, mask, list, colliding entity
      */
-    public void addCollisionBoxesToList(World par1World, int par2, int par3, int par4, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity)
+    public void addCollisionBoxesToList(World par1World, int x, int y, int z, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity)
     {
-        boolean var8 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2, par3, par4 - 1));
-        boolean var9 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2, par3, par4 + 1));
-        boolean var10 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2 - 1, par3, par4));
-        boolean var11 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2 + 1, par3, par4));
+        boolean var8 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(x, y, z - 1));
+        boolean var9 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(x, y, z + 1));
+        boolean var10 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(x - 1, y, z));
+        boolean var11 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(x + 1, y, z));
 
         if ((!var10 || !var11) && (var10 || var11 || var8 || var9))
         {
             if (var10 && !var11)
             {
                 this.setBlockBounds(0.0F, 0.0F, 0.4375F, 0.5F, 1.0F, 0.5625F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
             }
             else if (!var10 && var11)
             {
                 this.setBlockBounds(0.5F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
             }
         }
         else
         {
             this.setBlockBounds(0.0F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
-            super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+            super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
         }
 
         if ((!var8 || !var9) && (var10 || var11 || var8 || var9))
@@ -105,18 +105,18 @@ public class BlockPane extends Block
             if (var8 && !var9)
             {
                 this.setBlockBounds(0.4375F, 0.0F, 0.0F, 0.5625F, 1.0F, 0.5F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
             }
             else if (!var8 && var9)
             {
                 this.setBlockBounds(0.4375F, 0.0F, 0.5F, 0.5625F, 1.0F, 1.0F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
             }
         }
         else
         {
             this.setBlockBounds(0.4375F, 0.0F, 0.0F, 0.5625F, 1.0F, 1.0F);
-            super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+            super.addCollisionBoxesToList(par1World, x, y, z, par5AxisAlignedBB, par6List, par7Entity);
         }
     }
 
