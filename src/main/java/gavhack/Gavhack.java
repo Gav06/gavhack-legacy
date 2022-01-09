@@ -1,6 +1,7 @@
 package gavhack;
 
 import gavhack.gui.GuiHud;
+import gavhack.gui.Screen;
 import gavhack.module.ModuleManager;
 import net.minecraft.src.Minecraft;
 
@@ -23,12 +24,14 @@ public class Gavhack {
 
     private final ModuleManager moduleManager;
     private final GuiHud hud;
+    private final Screen clickGui;
 
     private Gavhack() {
         instance = this;
 
         this.moduleManager = new ModuleManager();
         this.hud = new GuiHud(Minecraft.getMinecraft());
+        this.clickGui = new Screen();
     }
 
     public ModuleManager getModuleManager() {
@@ -37,5 +40,9 @@ public class Gavhack {
 
     public GuiHud getHud() {
         return hud;
+    }
+
+    public Screen getClickGui() {
+        return clickGui;
     }
 }
