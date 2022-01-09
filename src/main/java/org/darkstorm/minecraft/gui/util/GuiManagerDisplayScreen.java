@@ -5,13 +5,14 @@ import java.io.IOException;
 
 import net.minecraft.src.GuiScreen;
 
+import org.darkstorm.minecraft.gui.DarkstormGuiManager;
 import org.darkstorm.minecraft.gui.GuiManager;
 import org.darkstorm.minecraft.gui.component.*;
 
 public class GuiManagerDisplayScreen extends GuiScreen {
-	private final GuiManager guiManager;
+	private final DarkstormGuiManager guiManager;
 
-	public GuiManagerDisplayScreen(GuiManager guiManager) {
+	public GuiManagerDisplayScreen(DarkstormGuiManager guiManager) {
 		this.guiManager = guiManager;
 	}
 
@@ -91,6 +92,7 @@ public class GuiManagerDisplayScreen extends GuiScreen {
 
 	@Override
 	public void drawScreen(int par2, int par3, float par4) {
+		guiManager.resizeComponents();
 		guiManager.render();
 		super.drawScreen(par2, par3, par4);
 	}

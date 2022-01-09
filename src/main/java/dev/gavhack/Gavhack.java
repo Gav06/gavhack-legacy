@@ -4,7 +4,7 @@ import dev.gavhack.gui.GuiHud;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
 import net.minecraft.src.Minecraft;
-import org.darkstorm.minecraft.gui.ExampleGuiManager;
+import org.darkstorm.minecraft.gui.DarkstormGuiManager;
 import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
 import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 
@@ -37,7 +37,7 @@ public class Gavhack {
         this.interactionManager = new InteractionManager();
 
         this.hud = new GuiHud(Minecraft.getMinecraft());
-        this.clickGui = new GuiManagerDisplayScreen(new ExampleGuiManager(new SimpleTheme()));
+        this.clickGui = new GuiManagerDisplayScreen(new DarkstormGuiManager(new SimpleTheme()));
     }
 
     public ModuleManager getModuleManager() {

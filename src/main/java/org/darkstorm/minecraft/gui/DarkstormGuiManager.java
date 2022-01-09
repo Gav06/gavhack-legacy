@@ -53,7 +53,7 @@ import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
  * 
  * @author DarkStorm (darkstorm@evilminecraft.net)
  */
-public final class ExampleGuiManager extends AbstractGuiManager {
+public final class DarkstormGuiManager extends AbstractGuiManager {
 	private class ModuleFrame extends BasicFrame {
 		private ModuleFrame() {
 		}
@@ -65,7 +65,7 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 
 
 
-	public ExampleGuiManager(Theme theme) {
+	public DarkstormGuiManager(Theme theme) {
 		setTheme(theme);
 		setup();
 	}
@@ -112,6 +112,9 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 			});
 			frame.add(button, GridLayoutManager.HorizontalGridConstraint.RIGHT);
 		}
+
+
+//		addFrame(new EnabledMods(getTheme()));
 //		*/
 
 		// Optional equal sizing and auto-positioning
@@ -196,7 +199,7 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 	}
 
 	@Override
-	protected void resizeComponents() {
+	public void resizeComponents() {
 		Theme theme = getTheme();
 		Frame[] frames = getFrames();
 		Button enable = new BasicButton("Enable");
@@ -208,6 +211,8 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 		for(Frame frame : frames) {
 			if(frame instanceof ModuleFrame) {
 				for(Component component : frame.getChildren()) {
+					if (!component.isVisible())
+						continue;
 					if(component instanceof Button) {
 						component.setWidth(buttonWidth);
 						component.setHeight(buttonHeight);

@@ -36,7 +36,6 @@ public class Tracers extends Module {
             tessellator.addVertex(ActiveRenderInfo.objectX, ActiveRenderInfo.objectY, ActiveRenderInfo.objectZ);
             tessellator.draw();
             GL11.glDisable(GL32.GL_DEPTH_CLAMP);
-            GL11.glEnable(GL11.GL_LINE_SMOOTH);
             GL11.glEnable(GL11.GL_DEPTH_TEST);
             GL11.glEnable(GL11.GL_TEXTURE_2D);
             GL11.glPopMatrix();
