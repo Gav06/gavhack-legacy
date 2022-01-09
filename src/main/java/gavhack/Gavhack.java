@@ -11,7 +11,7 @@ import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 public class Gavhack {
 
     public static final String NAME = "Gavhack-Legacy";
-    public static final String VERSION = "b1";
+    public static final String VERSION = "b2";
 
     private static Gavhack instance;
 
