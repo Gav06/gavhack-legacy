@@ -94,4 +94,8 @@ public class GuiManagerDisplayScreen extends GuiScreen {
 		guiManager.render();
 		super.drawScreen(par2, par3, par4);
 	}
+
+	public GuiManager getGuiManager() {
+		return guiManager;
+	}
 }

@@ -4,6 +4,9 @@ import gavhack.gui.GuiHud;
 import gavhack.gui.Screen;
 import gavhack.module.ModuleManager;
 import net.minecraft.src.Minecraft;
+import org.darkstorm.minecraft.gui.ExampleGuiManager;
+import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
+import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 
 public class Gavhack {
 
@@ -24,14 +27,14 @@ public class Gavhack {
 
     private final ModuleManager moduleManager;
     private final GuiHud hud;
-    private final Screen clickGui;
+    private final GuiManagerDisplayScreen clickGui;
 
     private Gavhack() {
         instance = this;
 
         this.moduleManager = new ModuleManager();
         this.hud = new GuiHud(Minecraft.getMinecraft());
-        this.clickGui = new Screen();
+        this.clickGui = new GuiManagerDisplayScreen(new ExampleGuiManager(new SimpleTheme()));
     }
 
     public ModuleManager getModuleManager() {
@@ -42,7 +45,7 @@ public class Gavhack {
         return hud;
     }
 
-    public Screen getClickGui() {
+    public GuiManagerDisplayScreen getClickGui() {
         return clickGui;
     }
 }

@@ -58,16 +58,15 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 		}
 	}
 
-	private final AtomicBoolean setup;
 
-	public ExampleGuiManager() {
-		setup = new AtomicBoolean();
+
+	public ExampleGuiManager(Theme theme) {
+		setTheme(theme);
+		setup();
 	}
 
 	@Override
 	public void setup() {
-		if(!setup.compareAndSet(false, true))
-			return;
 
 		createTestFrame();
 

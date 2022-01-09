@@ -8,6 +8,8 @@ import gavhack.module.Module;
 import net.minecraft.src.EnumChatFormatting;
 import net.minecraft.src.Gui;
 import net.minecraft.src.Minecraft;
+import org.darkstorm.minecraft.gui.component.Frame;
+import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 import org.lwjgl.input.Keyboard;
 
 public class GuiHud extends Gui {
@@ -34,6 +36,12 @@ public class GuiHud extends Gui {
                     + module.getName() + EnumChatFormatting.RESET + "=" + Keyboard.getKeyName(module.getBind()), 2, y, -1);
 //            event.getFont().drawString("poo", 10, 10, -1);
             y += 10;
+        }
+
+        for (Frame frame : Gavhack.getInstance().getClickGui().getGuiManager().getFrames()) {
+            if (!(mc.currentScreen instanceof GuiManagerDisplayScreen) && frame.isPinned()) {
+                frame.render();
+            }
         }
     }
 }

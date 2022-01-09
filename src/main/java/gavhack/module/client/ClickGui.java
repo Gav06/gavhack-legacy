@@ -1,7 +1,9 @@
 package gavhack.module.client;
 
-import gavhack.gui.Screen;
 import gavhack.module.Module;
+import org.darkstorm.minecraft.gui.ExampleGuiManager;
+import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
+import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 import org.lwjgl.input.Keyboard;
 
 public class ClickGui extends Module {
@@ -12,6 +14,7 @@ public class ClickGui extends Module {
 
     @Override
     protected void onEnable() {
-        mc.displayGuiScreen(new Screen());
+        mc.displayGuiScreen(gavhack.getClickGui());
+        disable();
     }
 }
