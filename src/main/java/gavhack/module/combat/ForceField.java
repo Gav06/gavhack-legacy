@@ -5,6 +5,7 @@ import gavhack.event.EventPlayerTick;
 import gavhack.module.Module;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLivingBase;
+import net.minecraft.src.Packet7UseEntity;
 import org.lwjgl.input.Keyboard;
 
 
@@ -23,7 +24,7 @@ public class ForceField extends Module {
             if (entity instanceof EntityLivingBase
                     && entity.getDistance(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ) <= 6
                     && ((EntityLivingBase)entity).getHealth() > 0) {
-                mc.playerController.attackEntity(mc.thePlayer, entity);
+                mc.thePlayer.sendQueue.addToSendQueue(new Packet7UseEntity(mc.thePlayer.entityId, entity.entityId, 1));
                 mc.thePlayer.swingItem();
             }
         }
