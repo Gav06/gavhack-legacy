@@ -39,6 +39,9 @@ public class ModuleManager {
         register(new Criticals());
         register(new NoFall());
         register(new Tracers());
+        register(new Jesus());
+        register(new AntiHunger());
+        register(new Speed());
         register(new ClickGui());
 
         modules.forEach(Module::registerSettings);
