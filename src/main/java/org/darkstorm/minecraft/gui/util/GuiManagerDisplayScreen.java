@@ -95,6 +95,11 @@ public class GuiManagerDisplayScreen extends GuiScreen {
 		super.drawScreen(par2, par3, par4);
 	}
 
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
+	}
+
 	public GuiManager getGuiManager() {
 		return guiManager;
 	}

@@ -26,16 +26,17 @@ public class GuiHud extends Gui {
         if (mc.gameSettings.showDebugInfo)
             return;
 
-        event.getFont().drawStringWithShadow(EnumChatFormatting.GREEN + Gavhack.NAME + " " + Gavhack.VERSION, 2, 2, -1);
+        event.getFont().drawString(EnumChatFormatting.GREEN + Gavhack.NAME + " " + Gavhack.VERSION, 2, 2, -1);
 
 
-        int y = 12;
-        for (Module module : Gavhack.getInstance().getModuleManager().getModules()) {
-            event.getFont().drawStringWithShadow(
-                    (module.isEnabled() ? EnumChatFormatting.GREEN : EnumChatFormatting.RED)
-                    + module.getName() + EnumChatFormatting.RESET + "=" + Keyboard.getKeyName(module.getBind()), 2, y, -1);
-//            event.getFont().drawString("poo", 10, 10, -1);
-            y += 10;
+        int y = 2;
+        for (Module module : Gavhack.getInstance().getModuleManager().getSortedModules()) {
+            if (module.isEnabled()) {
+                event.getFont().drawString(EnumChatFormatting.GREEN + module.getName(),
+                        event.getResolution().getScaledWidth() - event.getFont().getStringWidth(module.getName()) - 2,
+                        y, -1);
+                y += 10;
+            }
         }
 
         for (Frame frame : Gavhack.getInstance().getClickGui().getGuiManager().getFrames()) {

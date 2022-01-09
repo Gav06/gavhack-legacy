@@ -32,7 +32,7 @@ public class ChestESP extends Module {
                 RenderGlobal.drawOutlinedBoundingBox(AxisAlignedBB.getBoundingBox(
                         t.xCoord, t.yCoord, t.zCoord,
                         t.xCoord + 1.0, t.yCoord + 1.0, t.zCoord + 1.0));
-                GL11.glEnable(GL11.GL_LINE_SMOOTH);
+//                GL11.glEnable(GL11.GL_LINE_SMOOTH);
                 GL11.glEnable(GL11.GL_DEPTH_TEST);
                 GL11.glEnable(GL11.GL_TEXTURE_2D);
                 GL11.glPopMatrix();

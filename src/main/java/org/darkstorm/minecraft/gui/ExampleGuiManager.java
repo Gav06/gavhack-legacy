@@ -25,8 +25,12 @@
 package org.darkstorm.minecraft.gui;
 
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import gavhack.Gavhack;
+import gavhack.module.Module;
 import net.minecraft.src.Minecraft;
 
 import org.darkstorm.minecraft.gui.component.BoundedRangeComponent.ValueDisplay;
@@ -35,6 +39,7 @@ import org.darkstorm.minecraft.gui.component.Button;
 import org.darkstorm.minecraft.gui.component.Component;
 import org.darkstorm.minecraft.gui.component.Frame;
 import org.darkstorm.minecraft.gui.component.basic.*;
+import org.darkstorm.minecraft.gui.layout.GridLayoutManager;
 import org.darkstorm.minecraft.gui.listener.*;
 import org.darkstorm.minecraft.gui.theme.Theme;
 import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
@@ -68,13 +73,14 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 	@Override
 	public void setup() {
 
-		createTestFrame();
+//		createTestFrame();
 
-		/* Sample module frame setup
+//		/* Sample module frame setup
 
-		final Map<ModuleCategory, ModuleFrame> categoryFrames = new HashMap<ModuleCategory, ModuleFrame>();
-		for(Module module : ClientNameHere.getClientInstance().getModuleManager().getModules()) {
-			if(!module.isToggleable())
+
+		final Map<Module.Category, ModuleFrame> categoryFrames = new HashMap<Module.Category, ModuleFrame>();
+		for(Module module : Gavhack.getInstance().getModuleManager().getModules()) {
+			if(module.getCategory() == Module.Category.CLIENT)
 				continue;
 			ModuleFrame frame = categoryFrames.get(module.getCategory());
 			if(frame == null) {
@@ -82,7 +88,7 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 				name = Character.toUpperCase(name.charAt(0))
 						+ name.substring(1);
 				frame = new ModuleFrame(name);
-				frame.setTheme(theme);
+				frame.setTheme(getTheme());
 				frame.setLayoutManager(new GridLayoutManager(2, 0));
 				frame.setVisible(true);
 				frame.setClosable(false);
@@ -99,17 +105,14 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 					setText(updateModule.isEnabled() ? "Disable" : "Enable");
 				}
 			};
-			button.addButtonListener(new ButtonListener() {
-				@Override
-				public void onButtonPress(Button button) {
-					updateModule.toggle();
-					button.setText(updateModule.isEnabled() ? "Disable"
-							: "Enable");
-				}
+			button.addButtonListener(button1 -> {
+				updateModule.toggle();
+				button1.setText(updateModule.isEnabled() ? "Disable"
+						: "Enable");
 			});
-			frame.add(button, HorizontalGridConstraint.RIGHT);
+			frame.add(button, GridLayoutManager.HorizontalGridConstraint.RIGHT);
 		}
-		*/
+//		*/
 
 		// Optional equal sizing and auto-positioning
 		resizeComponents();
