@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import gavhack.Gavhack;
+import dev.gavhack.Gavhack;
 import net.minecraft.server.MinecraftServer;
 
 public abstract class World implements IBlockAccess

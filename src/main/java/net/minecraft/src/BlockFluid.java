@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import gavhack.Gavhack;
+import dev.gavhack.Gavhack;
 
 import java.util.Random;
 

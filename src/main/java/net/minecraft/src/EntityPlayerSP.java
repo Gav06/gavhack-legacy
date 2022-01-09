@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
-import gavhack.event.EventPlayerTick;
+import dev.gavhack.event.EventPlayerTick;
 
 public class EntityPlayerSP extends AbstractClientPlayer
 {

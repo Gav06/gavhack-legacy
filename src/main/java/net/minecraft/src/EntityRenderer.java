@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.darkmagician6.eventapi.EventManager;
-import gavhack.Gavhack;
-import gavhack.event.EventRenderWorld;
+import dev.gavhack.event.EventRenderWorld;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
@@ -1221,7 +1220,7 @@ public class EntityRenderer
                 this.renderCloudsCheck(var5, par1);
             }
 
-            this.mc.mcProfiler.endStartSection("gavhack");
+            this.mc.mcProfiler.endStartSection("dev/gavhack");
 
             EventManager.call(new EventRenderWorld(par1));
 

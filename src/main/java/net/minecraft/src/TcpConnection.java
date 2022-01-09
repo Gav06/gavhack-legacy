@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.crypto.SecretKey;
 
 import com.darkmagician6.eventapi.EventManager;
-import gavhack.event.EventPacket;
+import dev.gavhack.event.EventPacket;
 import net.minecraft.server.MinecraftServer;
 
 public class TcpConnection implements INetworkManager

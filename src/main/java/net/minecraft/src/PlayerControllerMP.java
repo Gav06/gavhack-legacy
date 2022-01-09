@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
-import gavhack.event.EventAttackEntity;
+import dev.gavhack.event.EventAttackEntity;
 
 public class PlayerControllerMP
 {

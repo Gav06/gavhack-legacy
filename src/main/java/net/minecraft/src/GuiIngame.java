@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.darkmagician6.eventapi.EventManager;
-import gavhack.event.EventRender2d;
+import dev.gavhack.event.EventRender2d;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 

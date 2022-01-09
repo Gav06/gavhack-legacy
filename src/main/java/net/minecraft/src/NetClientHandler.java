@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 import javax.crypto.SecretKey;
 
-import gavhack.event.EventPacket;
+import dev.gavhack.event.EventPacket;
 import net.minecraft.client.ClientBrandRetriever;
 import org.lwjgl.input.Keyboard;
 

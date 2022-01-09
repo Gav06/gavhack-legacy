@@ -17,9 +17,9 @@ import java.util.Iterator;
 import java.util.List;
 import javax.imageio.ImageIO;
 
-import gavhack.Gavhack;
-import gavhack.event.EventKeyPress;
-import gavhack.event.EventLoadWorld;
+import dev.gavhack.Gavhack;
+import dev.gavhack.event.EventKeyPress;
+import dev.gavhack.event.EventLoadWorld;
 import net.minecraft.client.ClientBrandRetriever;
 import net.minecraft.server.MinecraftServer;
 import org.lwjgl.LWJGLException;

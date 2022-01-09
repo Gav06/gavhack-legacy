@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
-import gavhack.event.EventPacket;
+import dev.gavhack.event.EventPacket;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;

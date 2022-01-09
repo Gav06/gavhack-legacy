@@ -27,10 +27,10 @@ package org.darkstorm.minecraft.gui;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import gavhack.Gavhack;
-import gavhack.module.Module;
+import dev.gavhack.Gavhack;
+import dev.gavhack.features.module.Category;
+import dev.gavhack.features.module.Module;
 import net.minecraft.src.Minecraft;
 
 import org.darkstorm.minecraft.gui.component.BoundedRangeComponent.ValueDisplay;
@@ -78,9 +78,9 @@ public final class ExampleGuiManager extends AbstractGuiManager {
 //		/* Sample module frame setup
 
 
-		final Map<Module.Category, ModuleFrame> categoryFrames = new HashMap<Module.Category, ModuleFrame>();
+		final Map<Category, ModuleFrame> categoryFrames = new HashMap<Category, ModuleFrame>();
 		for(Module module : Gavhack.getInstance().getModuleManager().getModules()) {
-			if(module.getCategory() == Module.Category.CLIENT)
+			if(module.getCategory() == Category.CLIENT)
 				continue;
 			ModuleFrame frame = categoryFrames.get(module.getCategory());
 			if(frame == null) {

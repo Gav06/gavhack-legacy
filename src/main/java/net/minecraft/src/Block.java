@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import gavhack.module.render.Wallhack;
+import dev.gavhack.features.module.render.Wallhack;
 
 import java.util.List;
 import java.util.Random;
