@@ -2,12 +2,15 @@ package gavhack.module;
 
 import com.darkmagician6.eventapi.EventManager;
 import gavhack.Gavhack;
+import gavhack.setting.Bind;
+import gavhack.setting.Setting;
 import net.minecraft.src.Minecraft;
 import org.lwjgl.input.Keyboard;
 
-public abstract class Module {
+import java.util.ArrayList;
+import java.util.Arrays;
 
-    private int bind;
+public abstract class Module {
     private boolean enabled;
 
     private final String name;
@@ -16,14 +19,31 @@ public abstract class Module {
     protected final Minecraft mc = Minecraft.getMinecraft();
     protected final Gavhack gavhack = Gavhack.getInstance();
 
+    private final ArrayList<Setting> settings = new ArrayList<>();
+    private final Bind bind = new Bind("Bind", Keyboard.KEY_NONE);
+
     public Module(String name, Category category, int bind) {
         this.name = name;
         this.category = category;
-        this.bind = bind;
+        this.bind.setValue(bind);
     }
 
     public Module(String name, Category category) {
         this(name, category, Keyboard.KEY_NONE);
+    }
+
+    public void registerSettings() {
+        Arrays.stream(getClass().getDeclaredFields())
+                .filter((field) -> Setting.class.isAssignableFrom(field.getType()))
+                .forEach((field) -> {
+                    field.setAccessible(true);
+
+                    try {
+                        settings.add((Setting) field.get(this));
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                });
     }
 
     public void toggle() {
@@ -63,11 +83,11 @@ public abstract class Module {
     }
 
     public int getBind() {
-        return bind;
+        return bind.getValue();
     }
 
-    public void setBind(int bind) {
-        this.bind = bind;
+    public void setBind(int in) {
+        bind.setValue(in);
     }
 
     public enum Category {

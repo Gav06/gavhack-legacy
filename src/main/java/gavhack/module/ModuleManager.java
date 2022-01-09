@@ -34,6 +34,8 @@ public class ModuleManager {
         register(new Criticals());
         register(new NoFall());
         register(new Tracers());
+
+        modules.forEach(Module::registerSettings);
     }
 
     private void register(Module module) {
