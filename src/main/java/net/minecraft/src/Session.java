@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 public class Session
 {
-    private final String username;
+    public String username;
     private final String sessionId;
 
     public Session(String par1Str, String par2Str)

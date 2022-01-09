@@ -36,6 +36,8 @@ public class GuiMultiplayer extends GuiScreen
     /** The 'Delete' button */
     private GuiButton buttonDelete;
 
+    private GuiTextField usernameLogin;
+
     /** The 'Delete' button was clicked */
     private boolean deleteClicked;
 
@@ -117,6 +119,8 @@ public class GuiMultiplayer extends GuiScreen
         this.buttonSelect.enabled = var1;
         this.field_96289_p.enabled = var1;
         this.buttonDelete.enabled = var1;
+
+        usernameLogin = new GuiTextField(mc.fontRenderer, 0, 0, 100, 20);
     }
 
     /**
@@ -146,6 +150,13 @@ public class GuiMultiplayer extends GuiScreen
             this.localServerFindThread.interrupt();
             this.localServerFindThread = null;
         }
+    }
+
+    @Override
+    protected void mouseClicked(int par1, int par2, int par3) {
+        super.mouseClicked(par1, par2, par3);
+
+        usernameLogin.mouseClicked(par1, par2, par3);
     }
 
     /**
@@ -270,6 +281,11 @@ public class GuiMultiplayer extends GuiScreen
      */
     protected void keyTyped(char par1, int par2)
     {
+        usernameLogin.textboxKeyTyped(par1, par2);
+        if (usernameLogin.isFocused() && par2 == Keyboard.KEY_RETURN) {
+            mc.getSession().username = usernameLogin.getText();
+        }
+
         int var3 = this.selectedServer;
 
         if (par2 == 59)
@@ -326,6 +342,14 @@ public class GuiMultiplayer extends GuiScreen
         this.serverSlotContainer.drawScreen(par1, par2, par3);
         this.drawCenteredString(this.fontRenderer, I18n.getString("multiplayer.title"), this.width / 2, 20, 16777215);
         super.drawScreen(par1, par2, par3);
+
+        // login shit
+        drawString(fontRenderer, "Username: ", width / 2 - 275, height / 2 - 10, 16777215);
+
+        usernameLogin.xPos = width / 2 - 275;
+        usernameLogin.yPos = height / 2;
+
+        usernameLogin.drawTextBox();
 
         if (this.lagTooltip != null)
         {
