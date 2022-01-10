@@ -26,7 +26,7 @@ public class ForceField extends Module {
                 double distance = mc.thePlayer.canEntityBeSeen(ent) ? 6.0 : 2.5;
 
                 if (ent.getHealth() > 0f && ent.getDistanceToEntity(mc.thePlayer) <= distance) {
-                    mc.playerController.attackEntity(mc.thePlayer, entity);
+                    LocalPlayerUtil.attack(entity);
                     LocalPlayerUtil.swing();
                 }
             }

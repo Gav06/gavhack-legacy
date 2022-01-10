@@ -5,8 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 import org.lwjgl.input.Keyboard;
 
 public class GuiMultiplayer extends GuiScreen
@@ -62,6 +62,8 @@ public class GuiMultiplayer extends GuiScreen
     private int ticksOpened;
     private boolean field_74024_A;
     private List listofLanServers = Collections.emptyList();
+
+    private final ArrayList<String> recentNames = new ArrayList<>();
 
     public GuiMultiplayer(GuiScreen par1GuiScreen)
     {
@@ -120,7 +122,7 @@ public class GuiMultiplayer extends GuiScreen
         this.field_96289_p.enabled = var1;
         this.buttonDelete.enabled = var1;
 
-        usernameLogin = new GuiTextField(mc.fontRenderer, 0, 0, 100, 20);
+        usernameLogin = new GuiTextField(mc.fontRenderer, 0, 0, 100, 16);
     }
 
     /**
@@ -283,7 +285,17 @@ public class GuiMultiplayer extends GuiScreen
     {
         usernameLogin.textboxKeyTyped(par1, par2);
         if (usernameLogin.isFocused() && par2 == Keyboard.KEY_RETURN) {
-            mc.getSession().username = usernameLogin.getText();
+            final String text = usernameLogin.getText();
+            mc.getSession().username = text;
+            if (!recentNames.contains(text)) {
+                recentNames.add(0, text);
+            }
+
+            if (recentNames.size() > 10) {
+                recentNames.remove(recentNames.size() - 1);
+            }
+
+            usernameLogin.setText("");
         }
 
         int var3 = this.selectedServer;
@@ -344,12 +356,20 @@ public class GuiMultiplayer extends GuiScreen
         super.drawScreen(par1, par2, par3);
 
         // login shit
-        drawString(fontRenderer, "Username: ", width / 2 - 275, height / 2 - 10, 16777215);
+        drawString(fontRenderer, "Username: " + mc.getSession().username, 6, 2, -1);
 
-        usernameLogin.xPos = width / 2 - 275;
-        usernameLogin.yPos = height / 2;
+        usernameLogin.xPos = 6;
+        usernameLogin.yPos = 12;
 
         usernameLogin.drawTextBox();
+
+        drawString(fontRenderer, "Recent names:", 6, 34, -1);
+
+        int y = 44;
+        for (String s : recentNames) {
+            drawString(fontRenderer, s, 6, y, -1);
+            y += 10;
+        }
 
         if (this.lagTooltip != null)
         {
