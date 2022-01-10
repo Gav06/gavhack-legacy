@@ -32,7 +32,6 @@ public class KillAura extends Module {
 
     @EventTarget
     public void onTick(EventPlayerTick event) {
-        autoBlock.setValue(false);
         for (Entity entity : mc.theWorld.loadedEntityList) {
             if (!(entity instanceof EntityLivingBase) ||
                     ((EntityLivingBase) entity).getHealth() <= 0.0f ||
@@ -54,29 +53,8 @@ public class KillAura extends Module {
                     mc.thePlayer.stopUsingItem();
                 }
 
-//                int prevSlot = mc.thePlayer.inventory.currentItem;
-//
-//                int newSlot = -1;
-//
-//                if (silentSwap.getValue()) {
-//                    for (int i = 9; i > 0; i++) {
-//                        if (mc.thePlayer.inventory.getStackInSlot(i).getItem() instanceof ItemSword) {
-//                            newSlot = i;
-//                            break;
-//                        }
-//                    }
-//
-//                    if (newSlot != -1 && newSlot != prevSlot) {
-//                        LocalPlayerUtil.switchItem(newSlot);
-//                    }
-//                }
                 LocalPlayerUtil.attack(entity);
                 LocalPlayerUtil.swing();
-
-//                if (silentSwap.getValue() && newSlot != -1) {
-//                    LocalPlayerUtil.switchItem(prevSlot);
-//                }
-
             } else {
                 if (autoBlock.getValue() && mc.thePlayer.getHeldItem().getItem() instanceof ItemSword) {
                     mc.playerController.sendUseItem(mc.thePlayer, mc.theWorld, mc.thePlayer.getHeldItem());
