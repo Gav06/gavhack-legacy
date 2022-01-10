@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL32;
 public class Tracers extends Module {
 
     public Tracers() {
-        super("Tracers", Category.RENDER, Keyboard.KEY_U);
+        super("Tracers", Category.RENDER);
     }
 
     @EventTarget

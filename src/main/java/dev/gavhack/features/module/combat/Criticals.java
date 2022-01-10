@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 public class Criticals extends Module {
 
     public Criticals() {
-        super("Criticals", Category.COMBAT, Keyboard.KEY_V);
+        super("Criticals", Category.COMBAT);
     }
 
     @EventTarget

@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 public class ChestESP extends Module {
 
     public ChestESP() {
-        super("ChestESP", Category.RENDER, Keyboard.KEY_C);
+        super("ChestESP", Category.RENDER);
     }
 
     @EventTarget

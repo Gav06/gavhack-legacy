@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 public class NoFall extends Module {
 
     public NoFall() {
-        super("NoFall", Category.MOVEMENT, Keyboard.KEY_F);
+        super("NoFall", Category.MOVEMENT);
     }
 
     @EventTarget

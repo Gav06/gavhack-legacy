@@ -9,7 +9,7 @@ import org.lwjgl.input.Keyboard;
 
 public class Speed extends Module {
     public Speed() {
-        super("Speed", Category.MOVEMENT, Keyboard.KEY_I);
+        super("Speed", Category.MOVEMENT);
     }
 
     public static final Setting<Double> multiplier = new Setting<>("Multiplier", 0.2, 0.0, 2.0);

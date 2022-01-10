@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class KillAura extends Module {
     public KillAura() {
-        super("KillAura", Category.COMBAT, Keyboard.KEY_K);
+        super("KillAura", Category.COMBAT);
     }
 
     public static final Setting<Double> range = new Setting<>("Range", 6.0, 1.0, 6.0);

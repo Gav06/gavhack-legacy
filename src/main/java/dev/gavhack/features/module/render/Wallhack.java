@@ -24,7 +24,7 @@ public class Wallhack extends Module {
     }
 
     public Wallhack() {
-        super("Wallhack", Category.RENDER, Keyboard.KEY_X);
+        super("Wallhack", Category.RENDER);
         INSTANCE = this;
     }
 
