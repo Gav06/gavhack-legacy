@@ -3,6 +3,7 @@ package dev.gavhack.features.module;
 public enum Category {
     COMBAT("Combat"),
     MOVEMENT("Movement"),
+    PLAYER("Player"),
     RENDER("Render"),
     WORLD("World"),
     CLIENT("Client");

@@ -4,6 +4,7 @@ import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.event.EventKeyPress;
+import dev.gavhack.features.module.player.MiddleClick;
 import net.minecraft.src.Minecraft;
 
 import dev.gavhack.features.module.combat.*;
@@ -48,6 +49,7 @@ public class ModuleManager {
         register(new Scaffold());
         register(new ForceField());
         register(new Retard());
+        register(new MiddleClick());
 
         modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);
