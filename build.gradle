@@ -9,3 +9,9 @@ dependencies {
     // add all the jars in the libs directory as a dependencies
     implementation fileTree('libs')
 }
+
+jar {
+    manifest.attributes(
+            'Main-Class': 'dev.gavhack.Main'
+    )
+}
