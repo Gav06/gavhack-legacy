@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 public class Fullbright extends Module {
 
     public Fullbright() {
-        super("Fullbright", Category.RENDER, Keyboard.KEY_B);
+        super("Fullbright", Category.RENDER);
     }
 
     private final float[] lightmap = new float[16];

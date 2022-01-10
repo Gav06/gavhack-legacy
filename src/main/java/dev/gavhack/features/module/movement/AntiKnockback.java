@@ -11,7 +11,7 @@ import org.lwjgl.input.Keyboard;
 public class AntiKnockback extends Module {
 
     public AntiKnockback() {
-        super("AntiKnockback", Category.MOVEMENT, Keyboard.KEY_P);
+        super("AntiKnockback", Category.MOVEMENT);
     }
 
     @EventTarget

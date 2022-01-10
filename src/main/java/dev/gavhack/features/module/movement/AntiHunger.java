@@ -11,7 +11,7 @@ import org.lwjgl.input.Keyboard;
 
 public class AntiHunger extends Module {
     public AntiHunger() {
-        super("AntiHunger", Category.MOVEMENT, Keyboard.KEY_H);
+        super("AntiHunger", Category.MOVEMENT);
     }
 
     public static final Setting<Boolean> ground = new Setting<>("Ground", true);

@@ -9,7 +9,7 @@ import org.lwjgl.input.Keyboard;
 
 public class Jesus extends Module {
     public Jesus() {
-        super("Jesus", Category.MOVEMENT, Keyboard.KEY_J);
+        super("Jesus", Category.MOVEMENT);
     }
 
     @EventTarget
