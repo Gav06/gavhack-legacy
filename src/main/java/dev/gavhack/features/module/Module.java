@@ -16,8 +16,6 @@ public abstract class Module implements Wrapper {
     private final String name;
     private final Category category;
 
-    protected final Gavhack gavhack = Gavhack.getInstance();
-
     private final ArrayList<Setting> settings = new ArrayList<>();
     private final Bind bind = new Bind("Bind", Keyboard.KEY_NONE);
 

@@ -4,43 +4,35 @@ import dev.gavhack.gui.GuiHud;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
 import dev.gavhack.manager.friend.FriendManager;
-import net.minecraft.src.Minecraft;
+import dev.gavhack.util.internal.Wrapper;
 import org.darkstorm.minecraft.gui.DarkstormGuiManager;
 import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
 import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 
 public class Gavhack {
-
-    public static final String NAME = "Gavhack-Legacy";
+    public static final String NAME = "GavHack-Legacy";
     public static final String VERSION = "b2";
 
-    private static Gavhack instance;
-
-    public static void init() {
-        if (instance == null) {
-            new Gavhack();
-        }
-    }
-
-    public static Gavhack getInstance() {
-        return instance;
-    }
+    private static Gavhack INSTANCE;
 
     private final ModuleManager moduleManager;
     private final InteractionManager interactionManager;
     private final FriendManager friendManager;
+
     private final GuiHud hud;
     private final GuiManagerDisplayScreen clickGui;
 
     private Gavhack() {
-        instance = this;
+        INSTANCE = this;
 
-        this.moduleManager = new ModuleManager();
-        this.interactionManager = new InteractionManager();
-        this.friendManager = new FriendManager();
+        // managers
+        moduleManager = new ModuleManager();
+        interactionManager = new InteractionManager();
+        friendManager = new FriendManager();
 
-        this.hud = new GuiHud(Minecraft.getMinecraft());
-        this.clickGui = new GuiManagerDisplayScreen(new DarkstormGuiManager(new SimpleTheme()));
+        // gui
+        hud = new GuiHud(Wrapper.mc);
+        clickGui = new GuiManagerDisplayScreen(new DarkstormGuiManager(new SimpleTheme()));
     }
 
     public ModuleManager getModuleManager() {
@@ -61,5 +53,13 @@ public class Gavhack {
 
     public GuiManagerDisplayScreen getClickGui() {
         return clickGui;
+    }
+
+    public static Gavhack getInstance() {
+        if (INSTANCE == null) {
+            new Gavhack();
+        }
+
+        return INSTANCE;
     }
 }
