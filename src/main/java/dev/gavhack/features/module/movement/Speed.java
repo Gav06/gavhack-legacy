@@ -12,10 +12,7 @@ public class Speed extends Module {
         super("Speed", Category.MOVEMENT, Keyboard.KEY_I);
     }
 
-    public static final Setting<Double> multiplier = new Setting<>("Multiplier", 0.2, 0.0, 2.0);
-
     private double speed = 0.0;
-    private boolean speedUp = false;
 
     @EventTarget
     public void onTick(EventPlayerTick event) {
@@ -26,10 +23,6 @@ public class Speed extends Module {
                 mc.thePlayer.motionY = 0.3999999;
 
                 speed *= 2.149;
-                speedUp = !speedUp;
-                if (speedUp) {
-                    speed += multiplier.getValue();
-                }
             }
 
             double[] motion = getMotion(speed);
