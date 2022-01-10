@@ -393,7 +393,7 @@ public class Minecraft implements IPlayerUsage
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
 
-        Gavhack.init();
+        Gavhack.getInstance();
 
         if (this.serverName != null)
         {

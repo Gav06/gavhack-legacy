@@ -1,38 +1,19 @@
-package dev.gavhack.features.module.movement;
+package dev.gavhack.util.entity;
 
-import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.features.module.Category;
-import dev.gavhack.features.module.Module;
-import dev.gavhack.event.EventPlayerTick;
-import dev.gavhack.setting.Setting;
-import org.lwjgl.input.Keyboard;
+import dev.gavhack.util.internal.Wrapper;
 
-public class Speed extends Module {
-    public Speed() {
-        super("Speed", Category.MOVEMENT);
+public class MotionUtil implements Wrapper {
+    public static boolean isMoving() {
+        return mc.thePlayer.movementInput.moveForward != 0.0f || mc.thePlayer.movementInput.moveStrafe != 0.0f;
     }
 
-    private double speed = 0.0;
-
-    @EventTarget
-    public void onTick(EventPlayerTick event) {
-        if (mc.thePlayer.movementInput.moveForward != 0.0f || mc.thePlayer.movementInput.moveStrafe != 0.0f) {
-            speed = mc.thePlayer.isSprinting() ? 0.221 : 0.2873;
-
-            if (mc.thePlayer.onGround) {
-                mc.thePlayer.motionY = 0.3999999;
-
-                speed *= 2.149;
-            }
-
-            double[] motion = getMotion(speed);
-
-            mc.thePlayer.motionX = motion[0];
-            mc.thePlayer.motionZ = motion[1];
-        }
+    public static void setMotion(double x, double y, double z) {
+        mc.thePlayer.motionX = x;
+        mc.thePlayer.motionY = y;
+        mc.thePlayer.motionZ = z;
     }
 
-    private double[] getMotion(double speed) {
+    public static double[] getMotion(double speed) {
         float[] movements = getMovement();
 
         float forward = movements[0];
@@ -47,7 +28,7 @@ public class Speed extends Module {
         };
     }
 
-    private float[] getMovement() {
+    public static float[] getMovement() {
         float forward = mc.thePlayer.movementInput.moveForward;
         float strafe = mc.thePlayer.movementInput.moveStrafe;
         float yaw = mc.thePlayer.rotationYaw;
