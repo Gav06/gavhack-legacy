@@ -4,6 +4,7 @@ import dev.gavhack.gui.GuiHud;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
 import dev.gavhack.manager.friend.FriendManager;
+import dev.gavhack.manager.inventory.InventoryManager;
 import dev.gavhack.util.internal.Wrapper;
 import org.darkstorm.minecraft.gui.DarkstormGuiManager;
 import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
@@ -17,6 +18,7 @@ public class Gavhack {
 
     private final ModuleManager moduleManager;
     private final InteractionManager interactionManager;
+    private final InventoryManager inventoryManager;
     private final FriendManager friendManager;
 
     private final GuiHud hud;
@@ -28,6 +30,7 @@ public class Gavhack {
         // managers
         moduleManager = new ModuleManager();
         interactionManager = new InteractionManager();
+        inventoryManager = new InventoryManager();
         friendManager = new FriendManager();
 
         // gui
@@ -41,6 +44,10 @@ public class Gavhack {
 
     public InteractionManager getInteractionManager() {
         return interactionManager;
+    }
+
+    public InventoryManager getInventoryManager() {
+        return inventoryManager;
     }
 
     public FriendManager getFriendManager() {
