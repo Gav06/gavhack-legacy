@@ -16,7 +16,12 @@ public class Screen extends GuiScreen {
 
         int x = 4;
         for (Category category : Category.values()) {
-            components.add(new ModulePanel(category.getDisplayName(), x, 4, 100, 14));
+            final ModulePanel panel = new ModulePanel(category.getDisplayName(), x, 4, 100, 14);
+            for (Module module : Gavhack.getInstance().getModuleManager().getModulesFromCategory(category)) {
+                panel.getChildren().add(new ModuleButton(module, 0, 0, panel.width, panel.height - 2));
+            }
+
+            components.add(panel);
             x += 104;
         }
     }
@@ -40,6 +45,11 @@ public class Screen extends GuiScreen {
         for (Component component : components) {
             component.mouseReleased(mouseX, mouseY, mouseButton);
         }
+    }
+
+    @Override
+    public boolean doesGuiPauseGame() {
+        return false;
     }
 
     public ArrayList<Component> getComponents() {

@@ -2,6 +2,7 @@ package dev.gavhack.manager;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.event.EventKeyPress;
 import dev.gavhack.features.module.player.MiddleClick;
@@ -16,6 +17,7 @@ import dev.gavhack.features.module.client.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 public class ModuleManager {
 
@@ -23,12 +25,14 @@ public class ModuleManager {
     private final ArrayList<Module> sortedModules;
     private final HashMap<String, Module> nameMap;
     private final HashMap<Class<? extends Module>, Module> classMap;
+    private final HashMap<Category, List<Module>> categoryMap;
 
     public ModuleManager() {
         this.modules = new ArrayList<>();
         this.sortedModules = new ArrayList<>();
         this.nameMap = new HashMap<>();
         this.classMap = new HashMap<>();
+        this.categoryMap = new HashMap<>();
 
         EventManager.register(this);
 
@@ -62,6 +66,11 @@ public class ModuleManager {
         modules.add(module);
         nameMap.put(module.getName(), module);
         classMap.put(module.getClass(), module);
+        if (!categoryMap.containsKey(module.getCategory())) {
+            categoryMap.put(module.getCategory(), new ArrayList<>());
+        }
+
+        categoryMap.get(module.getCategory()).add(module);
     }
 
     private int sortAlphabetical(Module module1, Module module2) {
@@ -84,6 +93,10 @@ public class ModuleManager {
     @SuppressWarnings("unchecked")
     public <T extends Module> T getModule(Class<T> clazz) {
         return (T) classMap.get(clazz);
+    }
+
+    public List<Module> getModulesFromCategory(Category category) {
+        return categoryMap.get(category);
     }
 
     @EventTarget
