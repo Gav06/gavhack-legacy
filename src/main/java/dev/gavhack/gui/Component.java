@@ -12,7 +12,7 @@ public abstract class Component extends Rect implements IComponent{
     public abstract void mouseReleased(int mouseX, int mouseY, int mouseButton);
 
     @Override
-    public abstract void drawScreen(int mouseX, int mouseY, float partialTicks);
+    public abstract void draw(int mouseX, int mouseY, float partialTicks);
 
     @Override
     public abstract void keyTyped(int keyCode);

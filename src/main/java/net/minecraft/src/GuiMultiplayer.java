@@ -7,6 +7,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.*;
 
+import dev.gavhack.Gavhack;
 import org.lwjgl.input.Keyboard;
 
 public class GuiMultiplayer extends GuiScreen
@@ -63,7 +64,7 @@ public class GuiMultiplayer extends GuiScreen
     private boolean field_74024_A;
     private List listofLanServers = Collections.emptyList();
 
-    private final ArrayList<String> recentNames = new ArrayList<>();
+
 
     public GuiMultiplayer(GuiScreen par1GuiScreen)
     {
@@ -287,12 +288,12 @@ public class GuiMultiplayer extends GuiScreen
         if (usernameLogin.isFocused() && par2 == Keyboard.KEY_RETURN) {
             final String text = usernameLogin.getText();
             mc.getSession().username = text;
-            if (!recentNames.contains(text)) {
-                recentNames.add(0, text);
+            if (!Gavhack.recentNames.contains(text)) {
+                Gavhack.recentNames.add(0, text);
             }
 
-            if (recentNames.size() > 10) {
-                recentNames.remove(recentNames.size() - 1);
+            if (Gavhack.recentNames.size() > 10) {
+                Gavhack.recentNames.remove(Gavhack.recentNames.size() - 1);
             }
 
             usernameLogin.setText("");
@@ -366,7 +367,7 @@ public class GuiMultiplayer extends GuiScreen
         drawString(fontRenderer, "Recent names:", 6, 34, -1);
 
         int y = 44;
-        for (String s : recentNames) {
+        for (String s : Gavhack.recentNames) {
             drawString(fontRenderer, s, 6, y, -1);
             y += 10;
         }

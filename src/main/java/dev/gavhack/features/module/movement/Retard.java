@@ -2,12 +2,9 @@ package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.event.EventPacket;
-import dev.gavhack.event.EventPlayerTick;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.util.network.NetworkUtil;
 import net.minecraft.src.Packet10Flying;
-import net.minecraft.src.Packet12PlayerLook;
 
 public class Retard extends Module {
 
@@ -29,8 +26,8 @@ public class Retard extends Module {
     @EventTarget
     public void onPacket(EventPacket.Send event) {
         if (event.getPacket() instanceof Packet10Flying) {
-            float yaw = (float) (Math.random() * 360.0f) + 1.0f;
-            float pitch = ((float) (Math.random() * 180.0f) + 1.0f) - 90.0f;
+//            float yaw = (float) (Math.random() * 360.0f) + 1.0f;
+//            float pitch = ((float) (Math.random() * 180.0f) + 1.0f) - 90.0f;
 
             final Packet10Flying packet = (Packet10Flying) event.getPacket();
 

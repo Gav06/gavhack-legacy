@@ -10,6 +10,8 @@ import org.darkstorm.minecraft.gui.DarkstormGuiManager;
 import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
 import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 
+import java.util.ArrayList;
+
 public class Gavhack {
     public static final String NAME = "GavHack-Legacy";
     public static final String VERSION = "b2";
@@ -23,6 +25,8 @@ public class Gavhack {
 
     private final GuiHud hud;
     private final GuiManagerDisplayScreen clickGui;
+
+    public static final ArrayList<String> recentNames = new ArrayList<>();
 
     private Gavhack() {
         INSTANCE = this;
