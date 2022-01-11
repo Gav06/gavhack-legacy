@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ModulePanel extends Component implements Wrapper {
 
     private String title;
-    private boolean isOpen;
+    private boolean isOpen = false;
 
     private final ArrayList<ModuleButton> children;
     private final DragComponent header;
@@ -24,10 +24,13 @@ public class ModulePanel extends Component implements Wrapper {
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         header.mouseClicked(mouseX, mouseY, mouseButton);
 
-//        if (isOpen) {
+        if (header.isInside(mouseX, mouseY) && mouseButton == 1)
+            isOpen = !isOpen;
+
+        if (isOpen) {
             for (ModuleButton button : children) {
                 button.mouseClicked(mouseX, mouseY, mouseButton);
-//            }
+            }
         }
     }
 
@@ -35,11 +38,11 @@ public class ModulePanel extends Component implements Wrapper {
     public void mouseReleased(int mouseX, int mouseY, int mouseButton) {
         header.mouseReleased(mouseX, mouseY, mouseButton);
 
-//        if (isOpen) {
+        if (isOpen) {
             for (ModuleButton button : children) {
                 button.mouseReleased(mouseX, mouseY, mouseButton);
             }
-//        }
+        }
     }
 
     @Override
@@ -54,12 +57,14 @@ public class ModulePanel extends Component implements Wrapper {
                 x + (width / 2) - (mc.fontRenderer.getStringWidth(title) / 2),
                 y - (height / 2) + (mc.fontRenderer.FONT_HEIGHT), -1);
 
-        int paddingY = y + height + 1;
-        for (ModuleButton button : children) {
-            button.x = x;
-            button.y = paddingY;
-            button.draw(mouseX, mouseY, partialTicks);
-            paddingY += button.height + 1;
+        if (isOpen) {
+            int paddingY = y + height + 1;
+            for (ModuleButton button : children) {
+                button.x = x;
+                button.y = paddingY;
+                button.draw(mouseX, mouseY, partialTicks);
+                paddingY += button.height + 1;
+            }
         }
     }
 

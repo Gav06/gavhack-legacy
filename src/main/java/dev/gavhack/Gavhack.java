@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Gavhack {
     public static final String NAME = "GavHack-Legacy";
-    public static final String VERSION = "b2";
+    public static final String VERSION = "b3";
 
     private static Gavhack INSTANCE;
 
