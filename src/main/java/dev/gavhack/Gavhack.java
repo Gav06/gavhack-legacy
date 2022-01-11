@@ -1,6 +1,7 @@
 package dev.gavhack;
 
 import dev.gavhack.gui.GuiHud;
+import dev.gavhack.gui.Screen;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
 import dev.gavhack.manager.friend.FriendManager;
@@ -24,7 +25,7 @@ public class Gavhack {
     private final FriendManager friendManager;
 
     private final GuiHud hud;
-    private final GuiManagerDisplayScreen clickGui;
+    private final Screen clickGui;
 
     public static final ArrayList<String> recentNames = new ArrayList<>();
 
@@ -39,7 +40,7 @@ public class Gavhack {
 
         // gui
         hud = new GuiHud(Wrapper.mc);
-        clickGui = new GuiManagerDisplayScreen(new DarkstormGuiManager(new SimpleTheme()));
+        clickGui = new Screen();
     }
 
     public ModuleManager getModuleManager() {
@@ -62,7 +63,7 @@ public class Gavhack {
         return hud;
     }
 
-    public GuiManagerDisplayScreen getClickGui() {
+    public Screen getClickGui() {
         return clickGui;
     }
 

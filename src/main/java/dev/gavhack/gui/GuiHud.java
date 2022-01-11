@@ -38,8 +38,8 @@ public class GuiHud extends Gui {
             }
         }
 
-        if (!(mc.currentScreen instanceof GuiManagerDisplayScreen)) {
-            Gavhack.getInstance().getClickGui().getGuiManager().renderPinned();
-        }
+//        if (!(mc.currentScreen instanceof GuiManagerDisplayScreen)) {
+//            Gavhack.getInstance().getClickGui().getGuiManager().renderPinned();
+//        }
     }
 }
