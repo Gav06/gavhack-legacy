@@ -54,7 +54,7 @@ public class ModuleManager {
         register(new ForceField());
         register(new Retard());
         register(new MiddleClick());
-        register(new NewChunks());
+//        register(new NewChunks());
 
         modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);
