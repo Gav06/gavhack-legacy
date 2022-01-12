@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 import javax.crypto.SecretKey;
 
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.PacketEvent;
 import net.minecraft.client.ClientBrandRetriever;
 import org.lwjgl.input.Keyboard;
 
@@ -657,7 +657,7 @@ public class NetClientHandler extends NetHandler
      */
     public void addToSendQueue(Packet par1Packet)
     {
-        EventPacket.Send event = new EventPacket.Send(par1Packet);
+        PacketEvent.Send event = new PacketEvent.Send(par1Packet);
         EventManager.call(event);
         if (event.isCancelled())
             return;

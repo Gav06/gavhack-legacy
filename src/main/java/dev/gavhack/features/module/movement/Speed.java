@@ -3,9 +3,7 @@ package dev.gavhack.features.module.movement;
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.EventPlayerTick;
-import dev.gavhack.setting.Setting;
-import org.lwjgl.input.Keyboard;
+import dev.gavhack.event.PlayerTickEvent;
 
 public class Speed extends Module {
     public Speed() {
@@ -15,7 +13,7 @@ public class Speed extends Module {
     private double speed = 0.0;
 
     @EventTarget
-    public void onTick(EventPlayerTick event) {
+    public void onTick(PlayerTickEvent event) {
         if (mc.thePlayer.movementInput.moveForward != 0.0f || mc.thePlayer.movementInput.moveStrafe != 0.0f && !mc.thePlayer.capabilities.isFlying) {
             speed = mc.thePlayer.isSprinting() ? 0.221 : 0.2873;
 

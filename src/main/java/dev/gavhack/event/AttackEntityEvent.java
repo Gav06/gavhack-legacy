@@ -4,12 +4,12 @@ import com.darkmagician6.eventapi.events.callables.EventCancellable;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityPlayer;
 
-public class EventAttackEntity extends EventCancellable {
+public class AttackEntityEvent extends EventCancellable {
 
     private final EntityPlayer attacker;
     private Entity target;
 
-    public EventAttackEntity(EntityPlayer attacker, Entity target) {
+    public AttackEntityEvent(EntityPlayer attacker, Entity target) {
         this.attacker = attacker;
         this.target = target;
     }

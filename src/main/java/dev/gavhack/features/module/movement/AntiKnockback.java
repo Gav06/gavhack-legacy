@@ -1,12 +1,11 @@
 package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import net.minecraft.src.Packet28EntityVelocity;
 import net.minecraft.src.Packet60Explosion;
-import org.lwjgl.input.Keyboard;
 
 public class AntiKnockback extends Module {
 
@@ -15,7 +14,7 @@ public class AntiKnockback extends Module {
     }
 
     @EventTarget
-    public void onPacketRead(EventPacket.Receive event) {
+    public void onPacketRead(PacketEvent.Receive event) {
         if (mc.thePlayer == null)
             return;
 

@@ -2,14 +2,12 @@ package dev.gavhack.gui;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventRender2d;
+import dev.gavhack.event.Render2dEvent;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.Gavhack;
 import net.minecraft.src.EnumChatFormatting;
 import net.minecraft.src.Gui;
 import net.minecraft.src.Minecraft;
-import org.darkstorm.minecraft.gui.component.Frame;
-import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 
 public class GuiHud extends Gui {
 
@@ -21,7 +19,7 @@ public class GuiHud extends Gui {
     }
 
     @EventTarget
-    public void renderHud(EventRender2d event) {
+    public void renderHud(Render2dEvent event) {
         if (mc.gameSettings.showDebugInfo)
             return;
 

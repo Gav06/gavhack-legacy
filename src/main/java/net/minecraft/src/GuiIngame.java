@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.EventRender2d;
+import dev.gavhack.event.Render2dEvent;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -458,7 +458,7 @@ public class GuiIngame extends Gui
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glEnable(GL11.GL_ALPHA_TEST);
 
-        EventManager.call(new EventRender2d(par1, var8, var5));
+        EventManager.call(new Render2dEvent(par1, var8, var5));
     }
 
     private void func_96136_a(ScoreObjective par1ScoreObjective, int par2, int par3, FontRenderer par4FontRenderer)

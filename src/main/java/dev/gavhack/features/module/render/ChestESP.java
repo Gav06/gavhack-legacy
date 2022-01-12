@@ -1,11 +1,10 @@
 package dev.gavhack.features.module.render;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventRenderWorld;
+import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import net.minecraft.src.*;
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 public class ChestESP extends Module {
@@ -15,7 +14,7 @@ public class ChestESP extends Module {
     }
 
     @EventTarget
-    public void onWorldRender(EventRenderWorld event) {
+    public void onWorldRender(RenderWorldEvent event) {
         for (TileEntity t : mc.theWorld.loadedTileEntityList) {
             if (t instanceof TileEntityChest || t instanceof TileEntityEnderChest) {
                 GL11.glPushMatrix();

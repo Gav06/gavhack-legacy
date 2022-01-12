@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.EventPlayerTick;
+import dev.gavhack.event.PlayerTickEvent;
 
 public class EntityPlayerSP extends AbstractClientPlayer
 {
@@ -58,7 +58,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void onLivingUpdate()
     {
-        EventManager.call(new EventPlayerTick());
+        EventManager.call(new PlayerTickEvent());
 
         if (this.sprintingTicksLeft > 0)
         {

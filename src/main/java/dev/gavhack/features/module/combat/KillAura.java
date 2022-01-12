@@ -1,7 +1,7 @@
 package dev.gavhack.features.module.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPlayerTick;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.manager.inventory.Swap;
@@ -12,7 +12,6 @@ import dev.gavhack.util.internal.Timer;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLivingBase;
 import net.minecraft.src.ItemSword;
-import org.lwjgl.input.Keyboard;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -33,7 +32,7 @@ public class KillAura extends Module {
     private long randomDelay = 0L;
 
     @EventTarget
-    public void onTick(EventPlayerTick event) {
+    public void onTick(PlayerTickEvent event) {
         int oldSlot = -1;
         if (silentSwap.getValue() && !InventoryUtil.isHolding(ItemSword.class)) {
             int slot = InventoryUtil.getSlot(ItemSword.class);

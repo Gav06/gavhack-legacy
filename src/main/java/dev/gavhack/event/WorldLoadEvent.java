@@ -3,11 +3,11 @@ package dev.gavhack.event;
 import com.darkmagician6.eventapi.events.Event;
 import net.minecraft.src.WorldClient;
 
-public class EventLoadWorld implements Event {
+public class WorldLoadEvent implements Event {
 
     private final WorldClient world;
 
-    public EventLoadWorld(WorldClient world) {
+    public WorldLoadEvent(WorldClient world) {
         this.world = world;
     }
 

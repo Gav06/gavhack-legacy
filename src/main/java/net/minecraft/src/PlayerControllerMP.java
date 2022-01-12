@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.EventAttackEntity;
+import dev.gavhack.event.AttackEntityEvent;
 
 public class PlayerControllerMP
 {
@@ -410,7 +410,7 @@ public class PlayerControllerMP
      */
     public void attackEntity(EntityPlayer par1EntityPlayer, Entity par2Entity)
     {
-        final EventAttackEntity event = new EventAttackEntity(par1EntityPlayer, par2Entity);
+        final AttackEntityEvent event = new AttackEntityEvent(par1EntityPlayer, par2Entity);
         EventManager.call(event);
         if (event.isCancelled())
             return;

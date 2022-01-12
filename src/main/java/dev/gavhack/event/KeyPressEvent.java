@@ -2,11 +2,11 @@ package dev.gavhack.event;
 
 import com.darkmagician6.eventapi.events.Event;
 
-public class EventKeyPress implements Event {
+public class KeyPressEvent implements Event {
 
     private final int key;
 
-    public EventKeyPress(int key) {
+    public KeyPressEvent(int key) {
         this.key = key;
     }
 

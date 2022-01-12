@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.EventRenderWorld;
+import dev.gavhack.event.RenderWorldEvent;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
@@ -1222,7 +1222,7 @@ public class EntityRenderer
 
             this.mc.mcProfiler.endStartSection("dev/gavhack");
 
-            EventManager.call(new EventRenderWorld(par1));
+            EventManager.call(new RenderWorldEvent(par1));
 
             this.mc.mcProfiler.endStartSection("hand");
 

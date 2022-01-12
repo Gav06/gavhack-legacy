@@ -1,8 +1,8 @@
 package dev.gavhack.features.module.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventAttackEntity;
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.AttackEntityEvent;
+import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.setting.Setting;
@@ -18,7 +18,7 @@ public class Criticals extends Module {
     }
 
     @EventTarget
-    public void onPacketSend(EventPacket.Send event) {
+    public void onPacketSend(PacketEvent.Send event) {
         if (critMode.getValue() == CritMode.Packet) {
             if (event.getPacket() instanceof Packet7UseEntity) {
                 Packet7UseEntity packet = (Packet7UseEntity) event.getPacket();
@@ -34,7 +34,7 @@ public class Criticals extends Module {
     }
 
     @EventTarget
-    public void onAttack(EventAttackEntity event) {
+    public void onAttack(AttackEntityEvent event) {
         if (critMode.getValue() == CritMode.Velocity) {
             if (mc.thePlayer.onGround && !mc.thePlayer.isSneaking() && !mc.thePlayer.isBlocking() && !mc.thePlayer.isInWater()) {
                 mc.thePlayer.motionY = 0.16f;

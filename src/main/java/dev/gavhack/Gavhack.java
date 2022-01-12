@@ -1,5 +1,9 @@
 package dev.gavhack;
 
+import com.darkmagician6.eventapi.EventManager;
+import com.darkmagician6.eventapi.EventTarget;
+import com.darkmagician6.eventapi.types.Priority;
+import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.gui.GuiHud;
 import dev.gavhack.gui.Screen;
 import dev.gavhack.manager.InteractionManager;
@@ -7,6 +11,7 @@ import dev.gavhack.manager.ModuleManager;
 import dev.gavhack.manager.friend.FriendManager;
 import dev.gavhack.manager.inventory.InventoryManager;
 import dev.gavhack.util.internal.Wrapper;
+import dev.gavhack.util.math.ProjectionUtil;
 
 import java.util.ArrayList;
 
@@ -38,6 +43,8 @@ public class Gavhack {
         // gui
         hud = new GuiHud(Wrapper.mc);
         clickGui = new Screen();
+
+        EventManager.register(this);
     }
 
     public ModuleManager getModuleManager() {
@@ -70,5 +77,10 @@ public class Gavhack {
         }
 
         return INSTANCE;
+    }
+
+    @EventTarget(value = Priority.HIGHEST)
+    public void onRenderWorldLast(RenderWorldEvent event) {
+        ProjectionUtil.updateMatrix(event.getPartialTicks());
     }
 }

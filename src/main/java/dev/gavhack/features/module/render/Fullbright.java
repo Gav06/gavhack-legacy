@@ -1,11 +1,10 @@
 package dev.gavhack.features.module.render;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventLoadWorld;
+import dev.gavhack.event.WorldLoadEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import net.minecraft.src.WorldProvider;
-import org.lwjgl.input.Keyboard;
 
 public class Fullbright extends Module {
 
@@ -30,7 +29,7 @@ public class Fullbright extends Module {
     }
 
     @EventTarget
-    public void onWorldLoad(EventLoadWorld event) {
+    public void onWorldLoad(WorldLoadEvent event) {
         fillLightmap(event.getWorld().provider);
     }
 

@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.crypto.SecretKey;
 
 import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.PacketEvent;
 import net.minecraft.server.MinecraftServer;
 
 public class TcpConnection implements INetworkManager
@@ -452,7 +452,7 @@ public class TcpConnection implements INetworkManager
 
             if (var2 != null && !this.theNetHandler.isConnectionClosed())
             {
-                EventPacket.Receive event = new EventPacket.Receive(var2);
+                PacketEvent.Receive event = new PacketEvent.Receive(var2);
                 EventManager.call(event);
                 if (event.isCancelled())
                     continue;

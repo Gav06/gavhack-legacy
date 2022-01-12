@@ -18,8 +18,8 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 import dev.gavhack.Gavhack;
-import dev.gavhack.event.EventKeyPress;
-import dev.gavhack.event.EventLoadWorld;
+import dev.gavhack.event.KeyPressEvent;
+import dev.gavhack.event.WorldLoadEvent;
 import net.minecraft.client.ClientBrandRetriever;
 import net.minecraft.server.MinecraftServer;
 import org.lwjgl.LWJGLException;
@@ -1564,7 +1564,7 @@ public class Minecraft implements IPlayerUsage
                         }
                         else
                         {
-                            EventManager.call(new EventKeyPress(Keyboard.getEventKey()));
+                            EventManager.call(new KeyPressEvent(Keyboard.getEventKey()));
 
                             if (Keyboard.getEventKey() == 1)
                             {
@@ -1980,7 +1980,7 @@ public class Minecraft implements IPlayerUsage
             this.playerController.setPlayerCapabilities(this.thePlayer);
             this.renderViewEntity = this.thePlayer;
 
-            EventManager.call(new EventLoadWorld(par1WorldClient));
+            EventManager.call(new WorldLoadEvent(par1WorldClient));
         }
         else
         {

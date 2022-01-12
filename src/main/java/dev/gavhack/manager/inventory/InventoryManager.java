@@ -1,7 +1,7 @@
 package dev.gavhack.manager.inventory;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.PacketEvent;
 import dev.gavhack.util.internal.Wrapper;
 import dev.gavhack.util.network.NetworkUtil;
 import net.minecraft.src.Packet16BlockItemSwitch;
@@ -10,7 +10,7 @@ public class InventoryManager implements Wrapper {
     private int serverSlot = -1;
 
     @EventTarget
-    public void onPacketSend(EventPacket.Send event) {
+    public void onPacketSend(PacketEvent.Send event) {
         if (event.getPacket() instanceof Packet16BlockItemSwitch) {
             serverSlot = ((Packet16BlockItemSwitch) event.getPacket()).id;
         }

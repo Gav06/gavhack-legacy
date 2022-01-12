@@ -1,8 +1,8 @@
 package dev.gavhack.features.module.render;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPacket;
-import dev.gavhack.event.EventRenderWorld;
+import dev.gavhack.event.PacketEvent;
+import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.setting.Setting;
@@ -28,7 +28,7 @@ public class NewChunks extends Module {
     }
 
     @EventTarget
-    public void onWorldRender(EventRenderWorld event) {
+    public void onWorldRender(RenderWorldEvent event) {
         if (needsRebuild) {
             GL11.glNewList(displayList, GL11.GL_COMPILE);
 
@@ -57,7 +57,7 @@ public class NewChunks extends Module {
     }
 
     @EventTarget
-    public void onPacketRead(EventPacket.Receive event) {
+    public void onPacketRead(PacketEvent.Receive event) {
         if (event.getPacket() instanceof Packet51MapChunk) {
             final Packet51MapChunk packet = (Packet51MapChunk) event.getPacket();
             if (packet.includeInitialize) {

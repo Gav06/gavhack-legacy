@@ -1,7 +1,7 @@
 package dev.gavhack.features.module.player;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPlayerTick;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import net.minecraft.src.EntityPlayer;
@@ -15,7 +15,7 @@ public class MiddleClick extends Module {
     }
 
     @EventTarget
-    public void onTick(EventPlayerTick event) {
+    public void onTick(PlayerTickEvent event) {
         if (Mouse.isButtonDown(2) && Mouse.getEventButtonState()) {
             MovingObjectPosition result = mc.objectMouseOver;
             if (result.typeOfHit.equals(EnumMovingObjectType.ENTITY) && result.entityHit instanceof EntityPlayer) {

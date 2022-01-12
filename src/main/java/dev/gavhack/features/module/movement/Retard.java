@@ -1,8 +1,8 @@
 package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPacket;
-import dev.gavhack.event.EventPlayerTick;
+import dev.gavhack.event.PacketEvent;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.setting.Setting;
@@ -17,7 +17,7 @@ public class Retard extends Module {
     }
 
     @EventTarget
-    public void onTick(EventPlayerTick event) {
+    public void onTick(PlayerTickEvent event) {
         if (mode.getValue() == RetardMode.Schitzo) {
             float yaw = (float) (Math.random() * 360.0f) + 1.0f;
             float pitch = ((float) (Math.random() * 180.0f) + 1.0f) - 90.0f;
@@ -30,7 +30,7 @@ public class Retard extends Module {
     }
 
     @EventTarget
-    public void onPacket(EventPacket.Send event) {
+    public void onPacket(PacketEvent.Send event) {
         if (mode.getValue() == RetardMode.Headless) {
             if (event.getPacket() instanceof Packet10Flying) {
 

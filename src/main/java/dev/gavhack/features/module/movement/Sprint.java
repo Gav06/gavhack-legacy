@@ -1,10 +1,9 @@
 package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPlayerTick;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import org.lwjgl.input.Keyboard;
 
 public class Sprint extends Module {
 
@@ -13,7 +12,7 @@ public class Sprint extends Module {
     }
 
     @EventTarget
-    public void onTick(EventPlayerTick event) {
+    public void onTick(PlayerTickEvent event) {
         if (mc.thePlayer.isSprinting())
             return;
 

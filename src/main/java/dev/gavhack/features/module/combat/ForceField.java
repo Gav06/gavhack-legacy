@@ -1,7 +1,7 @@
 package dev.gavhack.features.module.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPlayerTick;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.util.entity.LocalPlayerUtil;
@@ -15,7 +15,7 @@ public class ForceField extends Module {
     }
 
     @EventTarget
-    public void onTick(EventPlayerTick event) {
+    public void onTick(PlayerTickEvent event) {
         for (Entity entity : mc.theWorld.loadedEntityList) {
             if (entity instanceof EntityLivingBase) {
                 if (entity == mc.thePlayer)

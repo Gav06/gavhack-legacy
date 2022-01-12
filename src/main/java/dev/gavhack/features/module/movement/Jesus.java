@@ -1,11 +1,10 @@
 package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import net.minecraft.src.*;
-import org.lwjgl.input.Keyboard;
 
 public class Jesus extends Module {
     public Jesus() {
@@ -13,7 +12,7 @@ public class Jesus extends Module {
     }
 
     @EventTarget
-    public void onPacketSend(EventPacket.Send event) {
+    public void onPacketSend(PacketEvent.Send event) {
         if (event.getPacket() instanceof Packet11PlayerPosition) {
             if (isAboveLiquid() && mc.thePlayer.ticksExisted % 2 == 0) {
                 ((Packet11PlayerPosition) event.getPacket()).stance -= 0.5;

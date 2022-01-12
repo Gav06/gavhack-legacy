@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.EventPacket;
+import dev.gavhack.event.PacketEvent;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -74,7 +74,7 @@ public class MemoryConnection implements INetworkManager
         while (var1-- >= 0 && !this.readPacketCache.isEmpty())
         {
             Packet var2 = (Packet)this.readPacketCache.remove(0);
-            EventPacket.Receive event = new EventPacket.Receive(var2);
+            PacketEvent.Receive event = new PacketEvent.Receive(var2);
             EventManager.call(event);
             if (event.isCancelled())
                 continue;

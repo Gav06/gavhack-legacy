@@ -4,7 +4,7 @@ import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.EventKeyPress;
+import dev.gavhack.event.KeyPressEvent;
 import dev.gavhack.features.module.player.MiddleClick;
 import net.minecraft.src.Minecraft;
 
@@ -105,7 +105,7 @@ public class ModuleManager {
     }
 
     @EventTarget
-    public void onKey(EventKeyPress event) {
+    public void onKey(KeyPressEvent event) {
         for (Module module : modules) {
             if (module.getBind() == event.getKey())
                 module.toggle();

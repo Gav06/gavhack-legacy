@@ -3,11 +3,11 @@ package dev.gavhack.event;
 import com.darkmagician6.eventapi.events.callables.EventCancellable;
 import net.minecraft.src.Packet;
 
-public class EventPacket extends EventCancellable {
+public class PacketEvent extends EventCancellable {
 
     private final Packet packet;
 
-    public EventPacket(Packet packet) {
+    public PacketEvent(Packet packet) {
         this.packet = packet;
     }
 
@@ -15,14 +15,14 @@ public class EventPacket extends EventCancellable {
         return packet;
     }
 
-    public static class Send extends EventPacket {
+    public static class Send extends PacketEvent {
 
         public Send(Packet packet) {
             super(packet);
         }
     }
 
-    public static class Receive extends EventPacket {
+    public static class Receive extends PacketEvent {
 
         public Receive(Packet packet) {
             super(packet);

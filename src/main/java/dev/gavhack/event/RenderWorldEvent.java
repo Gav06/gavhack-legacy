@@ -2,11 +2,11 @@ package dev.gavhack.event;
 
 import com.darkmagician6.eventapi.events.Event;
 
-public class EventRenderWorld implements Event {
+public class RenderWorldEvent implements Event {
 
     private final float partialTicks;
 
-    public EventRenderWorld(float partialTicks) {
+    public RenderWorldEvent(float partialTicks) {
         this.partialTicks = partialTicks;
     }
 
