@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 public class ModulePanel extends Component implements Wrapper {
 
+    public static final int MAX_HEIGHT = 250;
+
     private String title;
-    private boolean isOpen = false;
+    private boolean isOpen = true;
 
     private final ArrayList<ModuleButton> children;
     private final DragComponent header;
@@ -24,14 +26,14 @@ public class ModulePanel extends Component implements Wrapper {
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         header.mouseClicked(mouseX, mouseY, mouseButton);
 
-        if (header.isInside(mouseX, mouseY) && mouseButton == 1)
-            isOpen = !isOpen;
-
         if (isOpen) {
             for (ModuleButton button : children) {
                 button.mouseClicked(mouseX, mouseY, mouseButton);
             }
         }
+
+        if (header.isInside(mouseX, mouseY) && mouseButton == 1)
+            isOpen = !isOpen;
     }
 
     @Override
@@ -52,18 +54,31 @@ public class ModulePanel extends Component implements Wrapper {
         x = header.x;
         y = header.y;
 
-        Gui.drawRect(x, y, x + width, y + height, 0xc8909090);
+        if (isOpen) {
+            int newHeight = header.height;
+            for (ModuleButton button : children) {
+                newHeight += button.height + button.getAdditionalHeight();
+            }
+
+            height = newHeight;
+        } else {
+            height = header.height;
+        }
+
+        Gui.drawRect(x - 1, y - 1, x + width + 1, y + height + (isOpen ? 2 : 1), 0x60909090);
+
+        Gui.drawRect(x, y, x + width, y + header.height, 0xc8909090);
         mc.fontRenderer.drawStringWithShadow(title,
                 x + (width / 2) - (mc.fontRenderer.getStringWidth(title) / 2),
-                y - (height / 2) + (mc.fontRenderer.FONT_HEIGHT), -1);
+                y - (header.height / 2) + (mc.fontRenderer.FONT_HEIGHT), -1);
 
         if (isOpen) {
-            int paddingY = y + height + 1;
+            int paddingY = y + header.height + 2;
             for (ModuleButton button : children) {
                 button.x = x;
                 button.y = paddingY;
                 button.draw(mouseX, mouseY, partialTicks);
-                paddingY += button.height + 1;
+                paddingY += button.height + button.getAdditionalHeight();
             }
         }
     }

@@ -25,7 +25,7 @@ public class GuiHud extends Gui {
         if (mc.gameSettings.showDebugInfo)
             return;
 
-        event.getFont().drawString(EnumChatFormatting.GREEN + Gavhack.NAME + " " + Gavhack.VERSION, 2, 2, -1);
+        event.getFont().drawString(EnumChatFormatting.GREEN + Gavhack.NAME + " " + Gavhack.VERSION, 2, 2, -1, true);
 
 
         int y = 2;
@@ -33,7 +33,7 @@ public class GuiHud extends Gui {
             if (module.isEnabled()) {
                 event.getFont().drawString(EnumChatFormatting.GREEN + module.getName(),
                         event.getResolution().getScaledWidth() - event.getFont().getStringWidth(module.getName()) - 2,
-                        y, -1);
+                        y, -1, true);
                 y += 10;
             }
         }

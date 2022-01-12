@@ -7,14 +7,11 @@ import dev.gavhack.manager.ModuleManager;
 import dev.gavhack.manager.friend.FriendManager;
 import dev.gavhack.manager.inventory.InventoryManager;
 import dev.gavhack.util.internal.Wrapper;
-import org.darkstorm.minecraft.gui.DarkstormGuiManager;
-import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
-import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 
 import java.util.ArrayList;
 
 public class Gavhack {
-    public static final String NAME = "GavHack-Legacy";
+    public static final String NAME = "Gavhack-Legacy";
     public static final String VERSION = "b3";
 
     private static Gavhack INSTANCE;

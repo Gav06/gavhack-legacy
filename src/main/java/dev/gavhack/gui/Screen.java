@@ -3,6 +3,11 @@ package dev.gavhack.gui;
 import dev.gavhack.Gavhack;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
+import dev.gavhack.gui.setting.BindComponent;
+import dev.gavhack.gui.setting.BooleanComponent;
+import dev.gavhack.gui.setting.EnumComponent;
+import dev.gavhack.gui.setting.NumberComponent;
+import dev.gavhack.setting.Setting;
 import net.minecraft.src.GuiScreen;
 
 import java.util.ArrayList;
@@ -11,6 +16,7 @@ public class Screen extends GuiScreen {
 
     private final ArrayList<Component> components;
 
+    @SuppressWarnings("unchecked")
     public Screen() {
         this.components = new ArrayList<>();
 
@@ -18,11 +24,25 @@ public class Screen extends GuiScreen {
         for (Category category : Category.values()) {
             final ModulePanel panel = new ModulePanel(category.getDisplayName(), x, 4, 100, 14);
             for (Module module : Gavhack.getInstance().getModuleManager().getModulesFromCategory(category)) {
-                panel.getChildren().add(new ModuleButton(module, 0, 0, panel.width, panel.height - 2));
+                final ModuleButton button = new ModuleButton(module, 0, 0, panel.width, panel.height - 2);
+
+                for (Setting<?> setting : module.getSettings()) {
+                    if (setting.getValue() instanceof Boolean) {
+                        button.getChildren().add(new BooleanComponent((Setting<Boolean>) setting, 0, 0, button.width - 2, button.height));
+                    } else if (setting.getValue() instanceof Number) {
+                        button.getChildren().add(new NumberComponent((Setting<Number>) setting, 0, 0, button.width - 2, button.height));
+                    } else if (setting.getValue() instanceof Enum) {
+                        button.getChildren().add(new EnumComponent((Setting<Enum<?>>) setting, 0, 0, button.width - 2, button.height));
+                    }
+                }
+
+                button.getChildren().add(new BindComponent(module.getBindSetting(), 0, 0, button.width - 2, button.height));
+
+                panel.getChildren().add(button);
             }
 
             components.add(panel);
-            x += 104;
+            x += 106;
         }
     }
 
@@ -44,6 +64,15 @@ public class Screen extends GuiScreen {
     public void mouseMovedOrUp(int mouseX, int mouseY, int mouseButton) {
         for (Component component : components) {
             component.mouseReleased(mouseX, mouseY, mouseButton);
+        }
+    }
+
+    @Override
+    public void keyTyped(char keyChar, int keyCode) {
+        super.keyTyped(keyChar, keyCode);
+
+        for (Component component : components) {
+            component.keyTyped(keyCode);
         }
     }
 

@@ -16,7 +16,7 @@ public abstract class Module implements Wrapper {
     private final String name;
     private final Category category;
 
-    private final ArrayList<Setting> settings = new ArrayList<>();
+    private final ArrayList<Setting<?>> settings = new ArrayList<>();
     private final Bind bind = new Bind("Bind", Keyboard.KEY_NONE);
 
     public Module(String name, Category category, int bind) {
@@ -36,7 +36,7 @@ public abstract class Module implements Wrapper {
                     field.setAccessible(true);
 
                     try {
-                        settings.add((Setting) field.get(this));
+                        settings.add((Setting<?>) field.get(this));
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
@@ -79,11 +79,19 @@ public abstract class Module implements Wrapper {
         return this.category;
     }
 
+    public Bind getBindSetting() {
+        return bind;
+    }
+
     public int getBind() {
         return bind.getValue();
     }
 
     public void setBind(int in) {
         bind.setValue(in);
+    }
+
+    public ArrayList<Setting<?>> getSettings() {
+        return settings;
     }
 }

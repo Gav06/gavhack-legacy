@@ -54,9 +54,14 @@ public class ModuleManager {
         register(new ForceField());
         register(new Retard());
         register(new MiddleClick());
+        register(new NewChunks());
 
         modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);
+
+        for (Category category : Category.values()) {
+            categoryMap.get(category).sort(this::sortAlphabetical);
+        }
 
         sortedModules.addAll(modules);
         sortedModules.sort(Comparator.comparing(module -> -Minecraft.getMinecraft().fontRenderer.getStringWidth(module.getName())));
