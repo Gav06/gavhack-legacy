@@ -5,6 +5,7 @@ import dev.gavhack.event.Render2dEvent;
 import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
+import dev.gavhack.util.math.MathUtil;
 import dev.gavhack.util.math.ProjectionUtil;
 import net.minecraft.src.*;
 import org.lwjgl.opengl.GL11;
@@ -21,18 +22,22 @@ public class NameTags extends Module {
             if (player == mc.thePlayer)
                 continue;
 
+            final double x = MathUtil.lerp(player.lastTickPosX, player.posX, event.getPartialTicks());
+            final double y = MathUtil.lerp(player.lastTickPosY, player.posY, event.getPartialTicks());
+            final double z = MathUtil.lerp(player.lastTickPosZ, player.posZ, event.getPartialTicks());
+
             final float health = player.getHealth() + player.getAbsorptionAmount();
             final String text = (player.isSneaking() ? EnumChatFormatting.GOLD : "")
                     + player.getEntityName() + EnumChatFormatting.RESET + " "
-                    + getHealthFormatting(health) + health;
+                    + getHealthFormatting(health) + String.format("%.1f", health);
 
-            double scale = (0.0083333 * (mc.thePlayer.getDistanceToEntity(player) / 2));
+            double scale = (0.0083333 * (MathUtil.clamp(mc.thePlayer.getDistanceToEntity(player), 3, 80) / 2));
 
             GL11.glPushMatrix();
             GL11.glTranslated(
-                    player.posX - RenderManager.renderPosX,
-                    player.posY + player.height + 0.3 - RenderManager.renderPosY,
-                    player.posZ - RenderManager.renderPosZ);
+                    x - RenderManager.renderPosX,
+                    y + player.height + 0.3 - RenderManager.renderPosY,
+                    z - RenderManager.renderPosZ);
             GL11.glNormal3f(0f, 1f, 0f);
             GL11.glRotatef(-RenderManager.instance.playerViewY, 0f, 1f, 0f);
             GL11.glRotatef(RenderManager.instance.playerViewX, 1f, 0f, 0f);

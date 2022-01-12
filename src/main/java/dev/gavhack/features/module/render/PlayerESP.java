@@ -54,7 +54,7 @@ public class PlayerESP extends Module {
         if (tracers.getValue()) {
             GL11.glEnable(GL32.GL_DEPTH_CLAMP);
             tessellator.startDrawing(GL11.GL_LINES);
-            tessellator.addVertex(0, 0, 0);
+            tessellator.addVertex(ActiveRenderInfo.objectX, ActiveRenderInfo.objectY, ActiveRenderInfo.objectZ);
             tessellator.addVertex(x, y, z);
             tessellator.draw();
             GL11.glDisable(GL32.GL_DEPTH_CLAMP);

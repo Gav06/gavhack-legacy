@@ -1,5 +1,6 @@
 package net.minecraft.src;
 
+import dev.gavhack.Gavhack;
 import org.lwjgl.opengl.GL11;
 
 public class RenderPlayer extends RendererLivingEntity
@@ -364,6 +365,9 @@ public class RenderPlayer extends RendererLivingEntity
 
     protected void func_96450_a(AbstractClientPlayer par1AbstractClientPlayer, double par2, double par4, double par6, String par8Str, float par9, double par10)
     {
+        if (Gavhack.getInstance().getModuleManager().getModule("NameTags").isEnabled())
+            return;
+
         if (par10 < 100.0D)
         {
             Scoreboard var12 = par1AbstractClientPlayer.getWorldScoreboard();
