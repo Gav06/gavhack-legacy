@@ -16,7 +16,7 @@ public class Speed extends Module {
 
     @EventTarget
     public void onTick(EventPlayerTick event) {
-        if (mc.thePlayer.movementInput.moveForward != 0.0f || mc.thePlayer.movementInput.moveStrafe != 0.0f) {
+        if (mc.thePlayer.movementInput.moveForward != 0.0f || mc.thePlayer.movementInput.moveStrafe != 0.0f && !mc.thePlayer.capabilities.isFlying) {
             speed = mc.thePlayer.isSprinting() ? 0.221 : 0.2873;
 
             if (mc.thePlayer.onGround) {
