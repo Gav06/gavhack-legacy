@@ -1,9 +1,10 @@
 package dev.gavhack.util.math;
 
-import com.sun.javafx.geom.Vec3d;
 import dev.gavhack.util.internal.Wrapper;
-import net.minecraft.src.*;
+import net.minecraft.src.ActiveRenderInfo;
+import net.minecraft.src.GLAllocation;
 import net.minecraft.src.ScaledResolution;
+import net.minecraft.src.Vec3;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector4f;
 
@@ -32,7 +33,7 @@ public class ProjectionUtil implements Wrapper {
         matrix.load(floatBuffer);
     }
 
-    public static Vec3d toScaledScreenPos(Vec3 posIn) {
+    public static Vec3 toScaledScreenPos(Vec3 posIn) {
         final Vector4f vector4f = getTransformedMatrix(posIn);
 
         final ScaledResolution scaledResolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
@@ -43,10 +44,10 @@ public class ProjectionUtil implements Wrapper {
         vector4f.y = height / 2f - (0.5f * vector4f.y * height + 0.5f);
         final double posZ = isVisible(vector4f, width, height) ? 0.0 : -1.0;
 
-        return new Vec3d(vector4f.x, vector4f.y, posZ);
+        return Vec3.createVectorHelper(vector4f.x, vector4f.y, posZ);
     }
 
-    public static Vec3d toScreenPos(Vec3 posIn) {
+    public static Vec3 toScreenPos(Vec3 posIn) {
         final Vector4f vector4f = getTransformedMatrix(posIn);
 
         final int width = mc.displayWidth;
@@ -56,7 +57,7 @@ public class ProjectionUtil implements Wrapper {
         vector4f.y = height / 2f - (0.5f * vector4f.y * height + 0.5f);
         final double posZ = isVisible(vector4f, width, height) ? 0.0 : -1.0;
 
-        return new Vec3d(vector4f.x, vector4f.y, posZ);
+        return Vec3.createVectorHelper(vector4f.x, vector4f.y, posZ);
     }
 
     private static Vector4f getTransformedMatrix(Vec3 posIn) {

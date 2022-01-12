@@ -18,10 +18,12 @@ public class MiddleClick extends Module {
     public void onTick(PlayerTickEvent event) {
         if (Mouse.isButtonDown(2) && Mouse.getEventButtonState()) {
             MovingObjectPosition result = mc.objectMouseOver;
-            if (result.typeOfHit.equals(EnumMovingObjectType.ENTITY) && result.entityHit instanceof EntityPlayer) {
+            if (result != null
+                    && result.typeOfHit.equals(EnumMovingObjectType.ENTITY)
+                    && result.entityHit instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) result.entityHit;
 
-                if (getGavhack().getFriendManager().isFriend(player.getUniqueID())) {
+                if (getGavhack().getFriendManager().isFriend(player.getEntityName())) {
                     getGavhack().getFriendManager().remove(player);
                 } else {
                     getGavhack().getFriendManager().add(player);

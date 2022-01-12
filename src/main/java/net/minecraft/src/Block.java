@@ -866,8 +866,13 @@ public class Block
      */
     public int getRenderBlockPass()
     {
-        if (Wallhack.INSTANCE.isEnabled() && !Wallhack.blocks.contains(blockID))
-            return 1;
+        if (Wallhack.INSTANCE.isEnabled()) {
+            if (Wallhack.blocks.contains(blockID)) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
 
         return 0;
     }

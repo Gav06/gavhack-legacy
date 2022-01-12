@@ -58,6 +58,7 @@ public class GuiIngame extends Gui
         this.mc.entityRenderer.setupOverlayRendering();
         GL11.glEnable(GL11.GL_BLEND);
 
+
         if (Minecraft.isFancyGraphicsEnabled())
         {
             this.renderVignette(this.mc.thePlayer.getBrightness(par1), var6, var7);
@@ -90,6 +91,8 @@ public class GuiIngame extends Gui
 
         if (!this.mc.playerController.enableEverythingIsScrewedUpMode())
         {
+
+
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             this.mc.getTextureManager().bindTexture(widgetsTexPath);
             InventoryPlayer var31 = this.mc.thePlayer.inventory;
@@ -104,6 +107,7 @@ public class GuiIngame extends Gui
             this.mc.mcProfiler.startSection("bossHealth");
             this.renderBossHealth();
             this.mc.mcProfiler.endSection();
+
 
             if (this.mc.playerController.shouldDrawHUD())
             {
@@ -458,6 +462,7 @@ public class GuiIngame extends Gui
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glEnable(GL11.GL_ALPHA_TEST);
 
+        EventManager.call(new Render2dEvent.Pre(par1, var8, var5));
         EventManager.call(new Render2dEvent(par1, var8, var5));
     }
 

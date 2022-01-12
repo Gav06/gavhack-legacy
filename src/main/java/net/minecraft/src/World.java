@@ -21,14 +21,14 @@ public abstract class World implements IBlockAccess
 
     /** A list of all Entities in all currently-loaded chunks */
     public List<Entity> loadedEntityList = new ArrayList<>();
-    protected List unloadedEntityList = new ArrayList();
+    public List<Entity> unloadedEntityList = new ArrayList<>();
 
     /** A list of all TileEntities in all currently-loaded chunks */
     public List<TileEntity> loadedTileEntityList = new ArrayList<>();
     private List addedTileEntityList = new ArrayList();
 
     /** Entities marked for removal. */
-    private List entityRemoval = new ArrayList();
+    public List<TileEntity> entityRemoval = new ArrayList<>();
 
     /** Array list of players in the world. */
     public List<EntityPlayer> playerEntities = new ArrayList<>();

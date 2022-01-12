@@ -27,4 +27,11 @@ public class Render2dEvent implements Event {
     public ScaledResolution getResolution() {
         return resolution;
     }
+
+    public static class Pre extends Render2dEvent {
+
+        public Pre(float partialTicks, FontRenderer font, ScaledResolution resolution) {
+            super(partialTicks, font, resolution);
+        }
+    }
 }

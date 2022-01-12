@@ -79,9 +79,9 @@ public class ActiveRenderInfo
         double var3 = par0EntityLivingBase.prevPosX + (par0EntityLivingBase.posX - par0EntityLivingBase.prevPosX) * par1;
         double var5 = par0EntityLivingBase.prevPosY + (par0EntityLivingBase.posY - par0EntityLivingBase.prevPosY) * par1 + (double)par0EntityLivingBase.getEyeHeight();
         double var7 = par0EntityLivingBase.prevPosZ + (par0EntityLivingBase.posZ - par0EntityLivingBase.prevPosZ) * par1;
-        double var9 = var3 + (double)(objectX * 1.0F);
-        double var11 = var5 + (double)(objectY * 1.0F);
-        double var13 = var7 + (double)(objectZ * 1.0F);
+        double var9 = var3 + (double)(objectX);
+        double var11 = var5 + (double)(objectY);
+        double var13 = var7 + (double)(objectZ);
         return par0EntityLivingBase.worldObj.getWorldVec3Pool().getVecFromPool(var9, var11, var13);
     }
 

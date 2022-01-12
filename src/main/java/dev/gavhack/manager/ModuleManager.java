@@ -45,7 +45,7 @@ public class ModuleManager {
         register(new Wallhack());
         register(new Criticals());
         register(new NoFall());
-        register(new Tracers());
+        register(new PlayerESP());
         register(new Jesus());
         register(new AntiHunger());
         register(new Speed());
@@ -55,6 +55,8 @@ public class ModuleManager {
         register(new Retard());
         register(new MiddleClick());
 //        register(new NewChunks());
+        register(new FakePlayer());
+        register(new NameTags());
 
         modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);

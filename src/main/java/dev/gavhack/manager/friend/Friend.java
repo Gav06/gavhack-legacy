@@ -1,18 +1,16 @@
 package dev.gavhack.manager.friend;
 
-import java.util.UUID;
-
 public class Friend {
-    private final UUID uuid;
+    private final String username;
     private final String alias;
 
-    public Friend(UUID uuid, String alias) {
-        this.uuid = uuid;
+    public Friend(String username, String alias) {
+        this.username = username;
         this.alias = alias;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getUsername() {
+        return username;
     }
 
     public String getAlias() {
@@ -21,10 +19,10 @@ public class Friend {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || !(o instanceof Friend)) {
+        if (!(o instanceof Friend)) {
             return false;
         }
 
-        return ((Friend) o).getUuid().equals(uuid);
+        return ((Friend) o).getUsername().equals(username);
     }
 }

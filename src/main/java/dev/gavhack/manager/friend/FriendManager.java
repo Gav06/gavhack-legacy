@@ -3,24 +3,30 @@ package dev.gavhack.manager.friend;
 import net.minecraft.src.EntityPlayer;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.UUID;
 
 public class FriendManager {
-    private final ArrayList<Friend> friends = new ArrayList<>();
+    // using a set so that we dont have more than 1 of the same entry
+    private final HashSet<Friend> friends = new HashSet<>();
 
-    public boolean isFriend(UUID uuid) {
-        return friends.stream().anyMatch((friend) -> friend.getUuid().equals(uuid));
+    public boolean isFriend(String username) {
+        return friends.stream().anyMatch((friend) -> friend.getUsername().equals(username));
     }
 
     public void add(EntityPlayer player) {
-        friends.add(new Friend(player.getUniqueID(), player.getEntityName()));
+        friends.add(new Friend(player.getEntityName(), player.getEntityName()));
+    }
+
+    public void add(EntityPlayer player, String alias) {
+        friends.add(new Friend(player.getEntityName(), alias));
     }
 
     public void remove(EntityPlayer player) {
-        friends.removeIf((friend) -> friend.getUuid().equals(player.getUniqueID()));
+        friends.removeIf((friend) -> friend.getUsername().equals(player.getEntityName()));
     }
 
-    public ArrayList<Friend> getFriends() {
+    public HashSet<Friend> getFriends() {
         return friends;
     }
 }
