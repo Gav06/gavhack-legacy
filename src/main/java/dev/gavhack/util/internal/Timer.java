@@ -4,10 +4,10 @@ public class Timer {
     private long time = -1L;
 
     public void reset() {
-        time = System.nanoTime();
+        time = System.currentTimeMillis();
     }
 
     public boolean passed(long ms) {
-        return System.nanoTime() - time >= ms * 1000000L;
+        return System.currentTimeMillis() - time >= ms;
     }
 }
