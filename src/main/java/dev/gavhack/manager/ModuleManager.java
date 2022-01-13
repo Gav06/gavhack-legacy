@@ -37,28 +37,38 @@ public class ModuleManager {
 
         EventManager.register(this);
 
-        register(new Fullbright());
-        register(new Sprint());
-        register(new AntiKnockback());
-        register(new NoWeather());
-        register(new ChestESP());
-        register(new KillAura());
-        register(new Wallhack());
-        register(new Criticals());
-        register(new NoFall());
-        register(new PlayerESP());
-        register(new Jesus());
-        register(new AntiHunger());
-        register(new Speed());
+        // client modules
         register(new ClickGui());
-        register(new Scaffold());
-        register(new ForceField());
-        register(new Retard());
-        register(new MiddleClick());
-//        register(new NewChunks());
         register(new FakePlayer());
-        register(new NameTags());
+
+        // combat modules
+        register(new Criticals());
+        register(new ForceField());
+        register(new KillAura());
+
+        // movement modules
+        register(new AntiHunger());
+        register(new AntiKnockback());
+        register(new Jesus());
+        register(new NoFall());
         register(new NoSlowDown());
+        register(new Retard());
+        register(new Speed());
+        register(new Sprint());
+
+        // player modules
+        register(new MiddleClick());
+
+        // render modules
+        register(new ChestESP());
+        register(new Fullbright());
+        register(new NameTags());
+        register(new PlayerESP());
+        register(new Wallhack());
+
+        // world modules
+        register(new NoWeather());
+        register(new Scaffold());
         register(new Timer());
 
         modules.sort(this::sortAlphabetical);
