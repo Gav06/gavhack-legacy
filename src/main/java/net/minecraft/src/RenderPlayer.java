@@ -400,6 +400,19 @@ public class RenderPlayer extends RendererLivingEntity
         this.modelBipedMain.onGround = 0.0F;
         this.modelBipedMain.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, par1EntityPlayer);
         this.modelBipedMain.bipedRightArm.render(0.0625F);
+
+        // arm chams code
+//        GL11.glPushMatrix();
+//        GL11.glDepthRange(0.0, 0.01);
+//        GL11.glDisable(GL11.GL_LIGHTING);
+//        GL11.glDisable(GL11.GL_TEXTURE_2D);
+//        GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK, GL11.GL_LINE);
+//        this.modelBipedMain.bipedRightArm.render(0.0625F);
+//        GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK, GL11.GL_FILL);
+//        GL11.glEnable(GL11.GL_TEXTURE_2D);
+//        GL11.glDepthRange(0.0, 1.0);
+//        GL11.glEnable(GL11.GL_LIGHTING);
+//        GL11.glPopMatrix();
     }
 
     /**
