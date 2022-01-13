@@ -1,6 +1,7 @@
 package net.minecraft.src;
 
 import dev.gavhack.Gavhack;
+import dev.gavhack.features.module.movement.Jesus;
 
 import java.util.Random;
 
@@ -163,7 +164,7 @@ public abstract class BlockFluid extends Block
      */
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)
     {
-        if (Gavhack.getInstance().getModuleManager().getModule("Jesus").isEnabled()) {
+        if (Gavhack.getInstance().getModuleManager().getModule("Jesus").isEnabled() && Jesus.shouldJesus()) {
             return AxisAlignedBB.getBoundingBox(
                     x + this.minX, y + this.minY, z + this.minZ,
                     x + this.maxX, y + this.maxY, z + this.maxZ);
