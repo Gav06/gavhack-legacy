@@ -17,7 +17,7 @@ public class Suffix extends Module {
     public void onPacketSend(PacketEvent.Send event) {
         if (event.getPacket() instanceof Packet3Chat) {
             String text = ((Packet3Chat) event.getPacket()).message;
-            if (text.startsWith("/") || text.startsWith("&")) {
+            if (text.startsWith("/") || text.startsWith(getGavhack().getCommandManager().getPrefix())) {
                 return;
             }
 
