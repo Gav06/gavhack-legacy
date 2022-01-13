@@ -73,7 +73,6 @@ public class ModuleManager {
         register(new ChestESP());
         register(new Fullbright());
         register(new NameTags());
-        register(new NoSlowDown());
         register(new ChunkBorders());
         register(new PlayerESP());
         register(new Wallhack());
