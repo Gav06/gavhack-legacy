@@ -6,6 +6,7 @@ import dev.gavhack.gui.clickgui.Screen;
 import dev.gavhack.manager.CommandManager;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
+import dev.gavhack.manager.ServerManager;
 import dev.gavhack.manager.config.ConfigManager;
 import dev.gavhack.manager.friend.FriendManager;
 import dev.gavhack.manager.inventory.InventoryManager;
@@ -25,6 +26,7 @@ public class Gavhack {
     private final InteractionManager interactionManager;
     private final InventoryManager inventoryManager;
     private final FriendManager friendManager;
+    private final ServerManager serverManager;
 
     private final GuiHud hud;
     private final Screen clickGui;
@@ -41,9 +43,10 @@ public class Gavhack {
         interactionManager = new InteractionManager();
         inventoryManager = new InventoryManager();
         friendManager = new FriendManager();
+        serverManager = new ServerManager();
 
         // gui
-        hud = new GuiHud(Wrapper.mc);
+        hud = new GuiHud();
         clickGui = new Screen();
 
         EventManager.register(this);
@@ -74,6 +77,10 @@ public class Gavhack {
 
     public FriendManager getFriendManager() {
         return friendManager;
+    }
+
+    public ServerManager getServerManager() {
+        return serverManager;
     }
 
     public GuiHud getHud() {

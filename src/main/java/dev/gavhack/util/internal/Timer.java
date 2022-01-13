@@ -10,4 +10,8 @@ public class Timer {
     public boolean passed(long ms) {
         return System.currentTimeMillis() - time >= ms;
     }
+
+    public long getTimeMs() {
+        return System.currentTimeMillis() - time;
+    }
 }
