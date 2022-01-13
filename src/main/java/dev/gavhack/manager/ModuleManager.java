@@ -58,6 +58,8 @@ public class ModuleManager {
 //        register(new NewChunks());
         register(new FakePlayer());
         register(new NameTags());
+        register(new NoSlowDown());
+
         modules.sort(this::sortAlphabetical);
 
         for (Category category : Category.values()) {
