@@ -1,16 +1,19 @@
 package dev.gavhack.features.module;
 
 import com.darkmagician6.eventapi.EventManager;
+import com.google.gson.JsonObject;
 import dev.gavhack.Gavhack;
+import dev.gavhack.manager.config.Configurable;
 import dev.gavhack.setting.Bind;
 import dev.gavhack.setting.Setting;
 import dev.gavhack.util.internal.Wrapper;
+import dev.gavhack.util.math.EnumHelper;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public abstract class Module implements Wrapper {
+public abstract class Module implements Wrapper, Configurable {
     private boolean enabled;
 
     private final String name;
@@ -93,5 +96,54 @@ public abstract class Module implements Wrapper {
 
     public ArrayList<Setting<?>> getSettings() {
         return settings;
+    }
+
+    @Override
+    public String getConfigName() {
+        return name;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public JsonObject writeToJsonObject() {
+        final JsonObject object = new JsonObject();
+
+        object.addProperty("name", name);
+        object.addProperty("bind", bind.getValue());
+        object.addProperty("enabled", enabled);
+
+        for (Setting<?> setting : settings) {
+            if (setting.getValue() instanceof Enum<?>) {
+                object.addProperty(setting.getName(), ((Setting<Enum<?>>)setting).getValue().name());
+            } else if (setting.getValue() instanceof Number) {
+                object.addProperty(setting.getName(), ((Setting<Number>)setting).getValue());
+            } else if (setting.getValue() instanceof Boolean) {
+                object.addProperty(setting.getName(), ((Setting<Boolean>)setting).getValue());
+            }
+        }
+
+        return object;
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    @Override
+    public void readFromJsonObject(JsonObject jsonObject) {
+        if (jsonObject.get("enabled").getAsBoolean())
+            enable();
+
+        bind.setValue(jsonObject.get("bind").getAsInt());
+
+        for (Setting setting : settings) {
+            if (setting.getValue() instanceof Enum<?>) {
+                Enum enumObj = EnumHelper.getEnumFromName(jsonObject.get(setting.getName()).getAsString(), (Class<? extends Enum>) setting.getValue().getClass());
+                if (enumObj != null) {
+                    setting.setValue(enumObj);
+                }
+            } else if (setting.getValue() instanceof Number) {
+                setting.setValue(jsonObject.get(setting.getName()).getAsNumber());
+            } else if (setting.getValue() instanceof Boolean) {
+                setting.setValue(jsonObject.get(setting.getName()).getAsBoolean());
+            }
+        }
     }
 }
