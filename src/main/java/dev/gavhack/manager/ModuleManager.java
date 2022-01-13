@@ -15,8 +15,10 @@ import dev.gavhack.features.module.hud.impl.Welcomer;
 import dev.gavhack.features.module.movement.*;
 import dev.gavhack.features.module.player.FastPlace;
 import dev.gavhack.features.module.player.MiddleClick;
+import dev.gavhack.features.module.player.Suffix;
 import dev.gavhack.features.module.render.*;
 import dev.gavhack.features.module.world.NoWeather;
+import dev.gavhack.features.module.world.PortalChat;
 import dev.gavhack.features.module.world.Scaffold;
 import dev.gavhack.features.module.world.Timer;
 import net.minecraft.src.Minecraft;
@@ -70,17 +72,21 @@ public class ModuleManager {
         // player modules
         register(new MiddleClick());
         register(new FastPlace());
+        register(new Suffix());
 
         // render modules
+        register(new Chams());
         register(new ChestESP());
+        register(new ChunkBorders());
+        register(new ESP());
         register(new Fullbright());
         register(new NameTags());
         register(new ChunkBorders());
-        register(new PlayerESP());
         register(new Wallhack());
 
         // world modules
         register(new NoWeather());
+        register(new PortalChat());
         register(new Scaffold());
         register(new Timer());
 

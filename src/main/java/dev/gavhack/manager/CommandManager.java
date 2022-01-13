@@ -53,4 +53,8 @@ public class CommandManager {
                     }
                 });
     }
+
+    public String getPrefix() {
+        return prefix;
+    }
 }
