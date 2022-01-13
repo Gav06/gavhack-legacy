@@ -1,14 +1,11 @@
 package net.minecraft.src;
 
 import com.google.common.collect.Sets;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+
+import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
 
 public class FolderResourcePack extends AbstractResourcePack
 {

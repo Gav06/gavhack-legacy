@@ -1,13 +1,10 @@
 package net.minecraft.src;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import java.util.*;
 
 public abstract class GuiContainer extends GuiScreen
 {

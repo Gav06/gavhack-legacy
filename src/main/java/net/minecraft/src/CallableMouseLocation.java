@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.util.concurrent.Callable;
 import org.lwjgl.input.Mouse;
+
+import java.util.concurrent.Callable;
 
 class CallableMouseLocation implements Callable
 {

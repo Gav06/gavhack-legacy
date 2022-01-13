@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.HashMap;
 import java.util.Map;
-import net.minecraft.server.MinecraftServer;
 
 public class TileEntity
 {

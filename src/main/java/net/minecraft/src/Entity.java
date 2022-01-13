@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.MinecraftServer;
 
 public abstract class Entity
 {

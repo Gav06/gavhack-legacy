@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.nio.IntBuffer;
 import org.lwjgl.opengl.GL11;
+
+import java.nio.IntBuffer;
 
 public class RenderList
 {

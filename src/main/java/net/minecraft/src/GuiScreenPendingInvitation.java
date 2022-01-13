@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
 import com.google.common.collect.Lists;
-import java.util.List;
 import org.lwjgl.input.Keyboard;
+
+import java.util.List;
 
 public class GuiScreenPendingInvitation extends GuiScreen
 {

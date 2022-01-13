@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.net.SocketAddress;
 import net.minecraft.server.MinecraftServer;
+
+import java.net.SocketAddress;
 
 public class IntegratedPlayerList extends ServerConfigurationManager
 {

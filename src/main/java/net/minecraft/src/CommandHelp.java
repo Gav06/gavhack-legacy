@@ -1,10 +1,11 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.MinecraftServer;
 
 public class CommandHelp extends CommandBase
 {

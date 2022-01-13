@@ -2,13 +2,10 @@ package net.minecraft.src;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+
 import java.io.File;
 import java.io.FileFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ResourcePackRepository
 {

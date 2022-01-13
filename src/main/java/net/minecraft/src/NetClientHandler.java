@@ -2,29 +2,19 @@ package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.google.common.base.Charsets;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import dev.gavhack.event.PacketEvent;
+import net.minecraft.client.ClientBrandRetriever;
+import org.lwjgl.input.Keyboard;
+
+import javax.crypto.SecretKey;
+import java.io.*;
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import javax.crypto.SecretKey;
-
-import dev.gavhack.event.PacketEvent;
-import net.minecraft.client.ClientBrandRetriever;
-import org.lwjgl.input.Keyboard;
+import java.util.*;
 
 public class NetClientHandler extends NetHandler
 {

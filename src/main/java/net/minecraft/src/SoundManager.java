@@ -1,13 +1,5 @@
 package net.minecraft.src;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import paulscode.sound.SoundSystem;
 import paulscode.sound.SoundSystemConfig;
@@ -15,6 +7,9 @@ import paulscode.sound.SoundSystemException;
 import paulscode.sound.codecs.CodecJOrbis;
 import paulscode.sound.codecs.CodecWav;
 import paulscode.sound.libraries.LibraryLWJGLOpenAL;
+
+import java.io.File;
+import java.util.*;
 
 public class SoundManager implements ResourceManagerReloadListener
 {

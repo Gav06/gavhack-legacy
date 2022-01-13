@@ -1,10 +1,6 @@
 package net.minecraft.src;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class EntityVillager extends EntityAgeable implements IMerchant, INpc
 {

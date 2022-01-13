@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import org.lwjgl.input.Keyboard;
+
 import java.util.Collections;
 import java.util.List;
-import org.lwjgl.input.Keyboard;
 
 public class GuiScreenMcoWorldTemplate extends GuiScreen
 {

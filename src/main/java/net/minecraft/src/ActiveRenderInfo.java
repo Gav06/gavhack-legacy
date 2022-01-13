@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
+
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 public class ActiveRenderInfo
 {

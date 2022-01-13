@@ -1,9 +1,5 @@
 package net.minecraft.src;
 
-import java.nio.FloatBuffer;
-import java.util.List;
-import java.util.Random;
-
 import com.darkmagician6.eventapi.EventManager;
 import dev.gavhack.event.RenderWorldEvent;
 import org.lwjgl.input.Mouse;
@@ -11,6 +7,10 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.Project;
+
+import java.nio.FloatBuffer;
+import java.util.List;
+import java.util.Random;
 
 public class EntityRenderer
 {

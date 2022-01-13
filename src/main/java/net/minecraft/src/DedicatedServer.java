@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -7,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.MinecraftServer;
 
 public class DedicatedServer extends MinecraftServer implements IServer
 {

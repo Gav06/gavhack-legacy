@@ -4,7 +4,7 @@ import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import net.minecraft.src.*;
+import net.minecraft.src.Packet11PlayerPosition;
 
 public class Jesus extends Module {
     public Jesus() {

@@ -2,9 +2,9 @@ package dev.gavhack.gui;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.Gavhack;
 import dev.gavhack.event.Render2dEvent;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.Gavhack;
 import net.minecraft.src.EnumChatFormatting;
 import net.minecraft.src.Gui;
 import net.minecraft.src.Minecraft;

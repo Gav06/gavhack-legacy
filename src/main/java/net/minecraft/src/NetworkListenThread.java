@@ -1,10 +1,11 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import net.minecraft.server.MinecraftServer;
 
 public abstract class NetworkListenThread
 {

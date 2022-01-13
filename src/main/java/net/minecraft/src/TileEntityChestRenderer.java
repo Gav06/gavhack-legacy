@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
-import java.util.Calendar;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import java.util.Calendar;
 
 public class TileEntityChestRenderer extends TileEntitySpecialRenderer
 {

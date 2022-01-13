@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import org.lwjgl.input.Keyboard;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import org.lwjgl.input.Keyboard;
 
 public class GuiScreenCreateOnlineWorld extends ScreenWithCallback
 {

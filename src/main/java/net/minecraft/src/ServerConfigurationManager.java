@@ -1,18 +1,13 @@
 package net.minecraft.src;
 
 import com.google.common.base.Charsets;
+import net.minecraft.server.MinecraftServer;
+
 import java.io.File;
 import java.net.SocketAddress;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.Map.Entry;
-import net.minecraft.server.MinecraftServer;
 
 public abstract class ServerConfigurationManager
 {

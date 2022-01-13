@@ -1,13 +1,14 @@
 package net.minecraft.src;
 
 import com.google.common.collect.Lists;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.imageio.ImageIO;
 
 public class TextureAtlasSprite implements Icon
 {

@@ -2,7 +2,9 @@ package dev.gavhack.util.entity;
 
 import dev.gavhack.util.internal.Wrapper;
 import dev.gavhack.util.network.NetworkUtil;
-import net.minecraft.src.*;
+import net.minecraft.src.Entity;
+import net.minecraft.src.Packet19EntityAction;
+import net.minecraft.src.Packet7UseEntity;
 
 public class LocalPlayerUtil implements Wrapper {
     public static void swing() {

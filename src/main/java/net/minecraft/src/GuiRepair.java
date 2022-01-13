@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
-import java.util.List;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 public class GuiRepair extends GuiContainer implements ICrafting
 {

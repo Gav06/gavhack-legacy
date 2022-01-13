@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
+import org.lwjgl.input.Mouse;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import org.lwjgl.input.Mouse;
 
 abstract class GuiSlotStats extends GuiSlot
 {

@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 
 public class GuiScreenBook extends GuiScreen
 {

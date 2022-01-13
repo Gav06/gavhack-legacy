@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 
 public class GuiMerchant extends GuiContainer
 {

@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;

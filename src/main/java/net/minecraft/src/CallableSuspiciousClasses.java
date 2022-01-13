@@ -1,11 +1,7 @@
 package net.minecraft.src;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 class CallableSuspiciousClasses implements Callable

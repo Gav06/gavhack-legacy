@@ -1,14 +1,15 @@
 package net.minecraft.src;
 
+import dev.gavhack.Gavhack;
+import org.lwjgl.input.Keyboard;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.util.*;
-
-import dev.gavhack.Gavhack;
-import org.lwjgl.input.Keyboard;
+import java.util.Collections;
+import java.util.List;
 
 public class GuiMultiplayer extends GuiScreen
 {

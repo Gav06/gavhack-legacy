@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.MinecraftServer;
 
 public class CommandWeather extends CommandBase
 {

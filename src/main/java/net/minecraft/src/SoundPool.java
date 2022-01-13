@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;

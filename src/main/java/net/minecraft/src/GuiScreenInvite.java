@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.io.IOException;
 import org.lwjgl.input.Keyboard;
+
+import java.io.IOException;
 
 public class GuiScreenInvite extends GuiScreen
 {

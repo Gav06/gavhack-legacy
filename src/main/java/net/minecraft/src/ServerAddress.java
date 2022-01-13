@@ -1,8 +1,8 @@
 package net.minecraft.src;
 
-import java.util.Hashtable;
 import javax.naming.directory.Attributes;
 import javax.naming.directory.InitialDirContext;
+import java.util.Hashtable;
 
 public class ServerAddress
 {

@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.util.concurrent.Callable;
 import org.lwjgl.Sys;
+
+import java.util.concurrent.Callable;
 
 class CallableLWJGLVersion implements Callable
 {

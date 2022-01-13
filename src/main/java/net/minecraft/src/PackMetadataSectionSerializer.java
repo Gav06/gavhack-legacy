@@ -1,10 +1,7 @@
 package net.minecraft.src;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
+
 import java.lang.reflect.Type;
 
 public class PackMetadataSectionSerializer extends BaseMetadataSectionSerializer implements JsonSerializer

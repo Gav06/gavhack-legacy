@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.MinecraftServer;
 
 public class CommandServerWhitelist extends CommandBase
 {

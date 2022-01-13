@@ -1,10 +1,11 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-import net.minecraft.server.MinecraftServer;
 
 public class BanEntry
 {

@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
+import org.lwjgl.opengl.GL11;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.Iterator;
-import org.lwjgl.opengl.GL11;
 
 public class GuiBeacon extends GuiContainer
 {

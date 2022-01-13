@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.concurrent.Callable;
 
 public class CallableServerProfiler implements Callable
 {

@@ -2,9 +2,7 @@ package dev.gavhack.manager.friend;
 
 import net.minecraft.src.EntityPlayer;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.UUID;
 
 public class FriendManager {
     // using a set so that we dont have more than 1 of the same entry

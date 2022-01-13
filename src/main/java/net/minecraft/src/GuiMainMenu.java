@@ -1,5 +1,9 @@
 package net.minecraft.src;
 
+import org.apache.commons.io.Charsets;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.glu.Project;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,9 +12,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
-import org.apache.commons.io.Charsets;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.Project;
 
 public class GuiMainMenu extends GuiScreen
 {

@@ -1,9 +1,6 @@
 package dev.gavhack;
 
 import com.darkmagician6.eventapi.EventManager;
-import com.darkmagician6.eventapi.EventTarget;
-import com.darkmagician6.eventapi.types.Priority;
-import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.gui.GuiHud;
 import dev.gavhack.gui.Screen;
 import dev.gavhack.manager.InteractionManager;

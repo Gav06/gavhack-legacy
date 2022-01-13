@@ -3,17 +3,21 @@ package dev.gavhack.manager;
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.Gavhack;
+import dev.gavhack.event.KeyPressEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.KeyPressEvent;
-import dev.gavhack.features.module.player.MiddleClick;
-import net.minecraft.src.Minecraft;
-
-import dev.gavhack.features.module.combat.*;
+import dev.gavhack.features.module.client.ClickGui;
+import dev.gavhack.features.module.client.FakePlayer;
+import dev.gavhack.features.module.combat.Criticals;
+import dev.gavhack.features.module.combat.ForceField;
+import dev.gavhack.features.module.combat.KillAura;
 import dev.gavhack.features.module.movement.*;
+import dev.gavhack.features.module.player.MiddleClick;
 import dev.gavhack.features.module.render.*;
-import dev.gavhack.features.module.world.*;
-import dev.gavhack.features.module.client.*;
+import dev.gavhack.features.module.world.NoWeather;
+import dev.gavhack.features.module.world.Scaffold;
+import dev.gavhack.features.module.world.Timer;
+import net.minecraft.src.Minecraft;
 
 import java.util.ArrayList;
 import java.util.Comparator;

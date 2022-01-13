@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.io.File;
 import java.io.IOException;
-import net.minecraft.server.MinecraftServer;
 
 public class IntegratedServer extends MinecraftServer
 {

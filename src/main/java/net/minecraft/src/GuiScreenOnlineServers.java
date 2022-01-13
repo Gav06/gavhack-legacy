@@ -1,6 +1,9 @@
 package net.minecraft.src;
 
 import com.google.common.collect.Lists;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -8,8 +11,6 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Iterator;
 import java.util.List;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
 
 public class GuiScreenOnlineServers extends GuiScreen
 {
