@@ -43,21 +43,24 @@ public class PlayerESP extends Module {
         Color color = getGavhack().getFriendManager().isFriend(entity.getEntityName())
                 ? Color.CYAN : getDistanceFade((int) mc.thePlayer.getDistanceToEntity(entity), 50);
 
-        GL11.glPushMatrix();
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glDisable(GL11.GL_DEPTH_TEST);
-        GL11.glLineWidth(lineWidth.getValue());
         GL11.glColor4f(color.getRed() / 255.0f, color.getGreen() / 255.0f, color.getBlue() / 255.0f, 1f);
+        GL11.glLineWidth(lineWidth.getValue());
 
         final Tessellator tessellator = Tessellator.instance;
 
         if (tracers.getValue()) {
+            GL11.glPushMatrix();
+            GL11.glDisable(GL11.GL_TEXTURE_2D);
+            GL11.glDisable(GL11.GL_DEPTH_TEST);
             GL11.glEnable(GL32.GL_DEPTH_CLAMP);
             tessellator.startDrawing(GL11.GL_LINES);
             tessellator.addVertex(ActiveRenderInfo.objectX, ActiveRenderInfo.objectY, ActiveRenderInfo.objectZ);
             tessellator.addVertex(x, y, z);
             tessellator.draw();
             GL11.glDisable(GL32.GL_DEPTH_CLAMP);
+            GL11.glEnable(GL11.GL_DEPTH_TEST);
+            GL11.glEnable(GL11.GL_TEXTURE_2D);
+            GL11.glPopMatrix();
         }
 
         if (boxes.getValue()) {
@@ -67,15 +70,19 @@ public class PlayerESP extends Module {
                     x + halfWidth, y + entity.height, z + halfWidth
             );
 
+            GL11.glPushMatrix();
+            GL11.glDisable(GL11.GL_TEXTURE_2D);
+            GL11.glDisable(GL11.GL_DEPTH_TEST);
             GL11.glTranslated(x, y, z);
             GL11.glRotatef(-(float)MathUtil.lerp(entity.prevRotationYaw, entity.rotationYaw, partialTicks), 0f, 1f, 0f);
             GL11.glTranslated(-x, -y, -z);
             RenderGlobal.drawOutlinedBoundingBox(lerpBox);
+            GL11.glEnable(GL11.GL_DEPTH_TEST);
+            GL11.glEnable(GL11.GL_TEXTURE_2D);
+            GL11.glPopMatrix();
         }
 
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-        GL11.glPopMatrix();
+        GL11.glLineWidth(1f);
     }
 
     private Color getDistanceFade(int distance, int max) {
