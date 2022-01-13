@@ -3,6 +3,7 @@ package net.minecraft.src;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
 import java.lang.reflect.Type;
 
 public class TextureMetadataSectionSerializer extends BaseMetadataSectionSerializer

@@ -1,12 +1,13 @@
 package net.minecraft.src;
 
+import org.apache.commons.io.Charsets;
+import org.lwjgl.opengl.GL11;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import org.apache.commons.io.Charsets;
-import org.lwjgl.opengl.GL11;
 
 public class GuiWinGame extends GuiScreen
 {

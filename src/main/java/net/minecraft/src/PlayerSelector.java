@@ -1,13 +1,10 @@
 package net.minecraft.src;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import net.minecraft.server.MinecraftServer;
+
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import net.minecraft.server.MinecraftServer;
 
 public class PlayerSelector
 {

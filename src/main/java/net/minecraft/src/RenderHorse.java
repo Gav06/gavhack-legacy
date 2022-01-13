@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
 import com.google.common.collect.Maps;
-import java.util.Map;
 import org.lwjgl.opengl.GL11;
+
+import java.util.Map;
 
 public class RenderHorse extends RenderLiving
 {

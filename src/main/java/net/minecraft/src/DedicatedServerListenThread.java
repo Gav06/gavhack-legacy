@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.io.IOException;
 import java.net.InetAddress;
-import net.minecraft.server.MinecraftServer;
 
 public class DedicatedServerListenThread extends NetworkListenThread
 {

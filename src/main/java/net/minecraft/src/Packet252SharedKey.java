@@ -1,11 +1,11 @@
 package net.minecraft.src;
 
+import javax.crypto.SecretKey;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import javax.crypto.SecretKey;
 
 public class Packet252SharedKey extends Packet
 {

@@ -1,13 +1,8 @@
 package net.minecraft.src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.*;
 
 public class ServerCommandScoreboard extends CommandBase
 {

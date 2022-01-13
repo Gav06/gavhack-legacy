@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.server.MinecraftServer;
 
 public class CommandServerOp extends CommandBase
 {

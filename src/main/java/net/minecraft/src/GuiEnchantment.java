@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
-import java.util.Random;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.lwjgl.util.glu.Project;
+
+import java.util.Random;
 
 public class GuiEnchantment extends GuiContainer
 {

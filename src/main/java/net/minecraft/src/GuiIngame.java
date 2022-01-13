@@ -1,15 +1,15 @@
 package net.minecraft.src;
 
-import java.awt.Color;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import com.darkmagician6.eventapi.EventManager;
 import dev.gavhack.event.Render2dEvent;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import java.awt.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 public class GuiIngame extends Gui
 {

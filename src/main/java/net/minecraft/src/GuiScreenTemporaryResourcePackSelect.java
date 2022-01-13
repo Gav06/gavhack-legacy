@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
+import org.lwjgl.Sys;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
-import org.lwjgl.Sys;
 
 public class GuiScreenTemporaryResourcePackSelect extends GuiScreen
 {

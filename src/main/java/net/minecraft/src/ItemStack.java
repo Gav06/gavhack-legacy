@@ -2,12 +2,13 @@ package net.minecraft.src;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
 
 public final class ItemStack
 {

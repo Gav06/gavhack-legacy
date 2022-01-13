@@ -1,10 +1,11 @@
 package net.minecraft.src;
 
+import org.lwjgl.input.Keyboard;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-import org.lwjgl.input.Keyboard;
 
 public class GuiScreenSubscription extends GuiScreen
 {

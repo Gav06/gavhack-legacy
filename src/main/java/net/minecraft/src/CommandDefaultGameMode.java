@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.util.Iterator;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.Iterator;
 
 public class CommandDefaultGameMode extends CommandGameMode
 {

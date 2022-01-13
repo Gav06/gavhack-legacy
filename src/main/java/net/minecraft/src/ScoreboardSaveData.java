@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.Collection;
 import java.util.Iterator;
-import net.minecraft.server.MinecraftServer;
 
 public class ScoreboardSaveData extends WorldSavedData
 {

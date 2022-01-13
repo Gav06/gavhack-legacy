@@ -1,11 +1,12 @@
 package net.minecraft.src;
 
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
 
 public class GuiChat extends GuiScreen
 {

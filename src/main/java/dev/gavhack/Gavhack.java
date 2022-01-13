@@ -1,11 +1,9 @@
 package dev.gavhack;
 
 import com.darkmagician6.eventapi.EventManager;
-import com.darkmagician6.eventapi.EventTarget;
-import com.darkmagician6.eventapi.types.Priority;
-import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.gui.GuiHud;
-import dev.gavhack.gui.Screen;
+import dev.gavhack.gui.clickgui.Screen;
+import dev.gavhack.manager.CommandManager;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
 import dev.gavhack.manager.config.ConfigManager;
@@ -23,6 +21,7 @@ public class Gavhack {
 
     private final ConfigManager configManager;
     private final ModuleManager moduleManager;
+    private final CommandManager commandManager;
     private final InteractionManager interactionManager;
     private final InventoryManager inventoryManager;
     private final FriendManager friendManager;
@@ -38,6 +37,7 @@ public class Gavhack {
         // managers
         configManager = new ConfigManager();
         moduleManager = new ModuleManager();
+        commandManager = new CommandManager();
         interactionManager = new InteractionManager();
         inventoryManager = new InventoryManager();
         friendManager = new FriendManager();
@@ -58,6 +58,10 @@ public class Gavhack {
 
     public ModuleManager getModuleManager() {
         return moduleManager;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 
     public InteractionManager getInteractionManager() {

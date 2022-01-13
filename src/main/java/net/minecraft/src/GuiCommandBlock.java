@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import org.lwjgl.input.Keyboard;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import org.lwjgl.input.Keyboard;
 
 public class GuiCommandBlock extends GuiScreen
 {

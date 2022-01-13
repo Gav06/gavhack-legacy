@@ -5,7 +5,10 @@ import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.util.math.MathUtil;
-import net.minecraft.src.*;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EnumChatFormatting;
+import net.minecraft.src.Gui;
+import net.minecraft.src.RenderManager;
 import org.lwjgl.opengl.GL11;
 
 public class NameTags extends Module {

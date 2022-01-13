@@ -1,9 +1,9 @@
 package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.PlayerTickEvent;
 
 public class Speed extends Module {
     public Speed() {

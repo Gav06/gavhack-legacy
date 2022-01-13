@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.util.List;
 import java.util.regex.Matcher;
-import net.minecraft.server.MinecraftServer;
 
 public class CommandServerPardonIp extends CommandBase
 {

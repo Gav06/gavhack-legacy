@@ -2,14 +2,11 @@ package net.minecraft.src;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import javax.imageio.ImageIO;
 import org.apache.commons.io.IOUtils;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public abstract class AbstractResourcePack implements ResourcePack
 {

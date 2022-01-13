@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.net.URI;
 import org.lwjgl.opengl.GL11;
+
+import java.net.URI;
 
 public class GuiScreenDemo extends GuiScreen
 {

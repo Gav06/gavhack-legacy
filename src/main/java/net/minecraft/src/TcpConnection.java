@@ -1,26 +1,18 @@
 package net.minecraft.src;
 
-import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.darkmagician6.eventapi.EventManager;
+import dev.gavhack.event.PacketEvent;
+import net.minecraft.server.MinecraftServer;
+
+import javax.crypto.SecretKey;
+import java.io.*;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketException;
 import java.security.PrivateKey;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-import javax.crypto.SecretKey;
-
-import com.darkmagician6.eventapi.EventManager;
-import dev.gavhack.event.PacketEvent;
-import net.minecraft.server.MinecraftServer;
 
 public class TcpConnection implements INetworkManager
 {

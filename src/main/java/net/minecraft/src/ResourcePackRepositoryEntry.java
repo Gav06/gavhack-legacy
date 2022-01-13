@@ -1,10 +1,11 @@
 package net.minecraft.src;
 
+import org.apache.commons.io.IOUtils;
+
 import java.awt.image.BufferedImage;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
-import org.apache.commons.io.IOUtils;
 
 public class ResourcePackRepositoryEntry
 {

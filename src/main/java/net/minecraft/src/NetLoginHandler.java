@@ -1,5 +1,8 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
+import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
@@ -10,8 +13,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import javax.crypto.SecretKey;
-import net.minecraft.server.MinecraftServer;
 
 public class NetLoginHandler extends NetHandler
 {

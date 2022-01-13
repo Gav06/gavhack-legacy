@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.nio.FloatBuffer;
 import org.lwjgl.opengl.GL11;
+
+import java.nio.FloatBuffer;
 
 public class RenderHelper
 {

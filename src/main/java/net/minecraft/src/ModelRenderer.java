@@ -1,8 +1,9 @@
 package net.minecraft.src;
 
+import org.lwjgl.opengl.GL11;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.lwjgl.opengl.GL11;
 
 public class ModelRenderer
 {

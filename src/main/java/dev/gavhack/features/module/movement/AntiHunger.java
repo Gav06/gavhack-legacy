@@ -1,9 +1,9 @@
 package dev.gavhack.features.module.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.PacketEvent;
 import dev.gavhack.setting.Setting;
 import net.minecraft.src.Packet11PlayerPosition;
 import net.minecraft.src.Packet19EntityAction;

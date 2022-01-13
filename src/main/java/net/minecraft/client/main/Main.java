@@ -1,11 +1,5 @@
 package net.minecraft.client.main;
 
-import java.io.File;
-import java.net.Authenticator;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.Proxy.Type;
-import java.util.List;
 import joptsimple.ArgumentAcceptingOptionSpec;
 import joptsimple.NonOptionArgumentSpec;
 import joptsimple.OptionParser;
@@ -14,6 +8,13 @@ import net.minecraft.src.MainProxyAuthenticator;
 import net.minecraft.src.MainShutdownHook;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.Session;
+
+import java.io.File;
+import java.net.Authenticator;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.Proxy.Type;
+import java.util.List;
 
 public class Main
 {

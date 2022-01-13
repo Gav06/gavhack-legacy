@@ -3,17 +3,22 @@ package dev.gavhack.manager;
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
 import dev.gavhack.Gavhack;
+import dev.gavhack.event.KeyPressEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.KeyPressEvent;
-import dev.gavhack.features.module.player.MiddleClick;
-import net.minecraft.src.Minecraft;
-
-import dev.gavhack.features.module.combat.*;
+import dev.gavhack.features.module.client.ClickGui;
+import dev.gavhack.features.module.client.FakePlayer;
+import dev.gavhack.features.module.combat.Criticals;
+import dev.gavhack.features.module.combat.ForceField;
+import dev.gavhack.features.module.combat.KillAura;
+import dev.gavhack.features.module.hud.impl.Welcomer;
 import dev.gavhack.features.module.movement.*;
+import dev.gavhack.features.module.player.MiddleClick;
 import dev.gavhack.features.module.render.*;
-import dev.gavhack.features.module.world.*;
-import dev.gavhack.features.module.client.*;
+import dev.gavhack.features.module.world.NoWeather;
+import dev.gavhack.features.module.world.Scaffold;
+import dev.gavhack.features.module.world.Timer;
+import net.minecraft.src.Minecraft;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -24,6 +29,7 @@ public class ModuleManager {
 
     private final ArrayList<Module> modules;
     private final ArrayList<Module> sortedModules;
+    private final ArrayList<Module> hudModules;
     private final HashMap<String, Module> nameMap;
     private final HashMap<Class<? extends Module>, Module> classMap;
     private final HashMap<Category, List<Module>> categoryMap;
@@ -31,35 +37,51 @@ public class ModuleManager {
     public ModuleManager() {
         this.modules = new ArrayList<>();
         this.sortedModules = new ArrayList<>();
+        this.hudModules = new ArrayList<>();
         this.nameMap = new HashMap<>();
         this.classMap = new HashMap<>();
         this.categoryMap = new HashMap<>();
 
         EventManager.register(this);
 
-        register(new Fullbright());
-        register(new Sprint());
-        register(new AntiKnockback());
-        register(new NoWeather());
-        register(new ChestESP());
-        register(new KillAura());
-        register(new Wallhack());
-        register(new Criticals());
-        register(new NoFall());
-        register(new PlayerESP());
-        register(new Jesus());
-        register(new AntiHunger());
-        register(new Speed());
+        // client modules
         register(new ClickGui());
-        register(new Scaffold());
-        register(new ForceField());
-        register(new Retard());
-        register(new MiddleClick());
-//        register(new NewChunks());
         register(new FakePlayer());
+
+        // combat modules
+        register(new Criticals());
+        register(new ForceField());
+        register(new KillAura());
+
+        // hud
+        register(new Welcomer());
+
+        // movement modules
+        register(new AntiHunger());
+        register(new AntiKnockback());
+        register(new Jesus());
+        register(new NoFall());
+        register(new NoSlowDown());
+        register(new Retard());
+        register(new Speed());
+        register(new Sprint());
+
+        // player modules
+        register(new MiddleClick());
+
+        // render modules
+        register(new ChestESP());
+        register(new Fullbright());
         register(new NameTags());
         register(new NoSlowDown());
         register(new ChunkBorders());
+        register(new PlayerESP());
+        register(new Wallhack());
+
+        // world modules
+        register(new NoWeather());
+        register(new Scaffold());
+        register(new Timer());
 
         modules.sort(this::sortAlphabetical);
 
@@ -80,6 +102,10 @@ public class ModuleManager {
         }
         module.registerSettings();
         categoryMap.get(module.getCategory()).add(module);
+
+        if (module.getCategory().equals(Category.HUD)) {
+            hudModules.add(module);
+        }
 
         Gavhack.getInstance().getConfigManager().getConfigurables().add(module);
     }

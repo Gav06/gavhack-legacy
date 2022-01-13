@@ -1,12 +1,8 @@
 package net.minecraft.src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.*;
 
 public class ServerScoreboard extends Scoreboard
 {

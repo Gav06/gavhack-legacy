@@ -1,10 +1,6 @@
 package net.minecraft.src;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class Packet52MultiBlockChange extends Packet
 {

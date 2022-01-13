@@ -1,9 +1,10 @@
 package net.minecraft.src;
 
-import java.util.Random;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import java.util.Random;
 
 public class GuiAchievements extends GuiScreen
 {

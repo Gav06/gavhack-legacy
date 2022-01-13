@@ -1,11 +1,8 @@
 package net.minecraft.src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import org.lwjgl.input.Keyboard;
+
+import java.util.*;
 
 public class GuiFlatPresets extends GuiScreen
 {

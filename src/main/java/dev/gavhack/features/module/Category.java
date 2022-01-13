@@ -2,6 +2,7 @@ package dev.gavhack.features.module;
 
 public enum Category {
     COMBAT("Combat"),
+    HUD("HUD"),
     MOVEMENT("Movement"),
     PLAYER("Player"),
     RENDER("Render"),

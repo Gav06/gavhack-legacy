@@ -2,7 +2,6 @@ package dev.gavhack.features.module;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.google.gson.JsonObject;
-import dev.gavhack.Gavhack;
 import dev.gavhack.manager.config.Configurable;
 import dev.gavhack.setting.Bind;
 import dev.gavhack.setting.Setting;

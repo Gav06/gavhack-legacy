@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.util.concurrent.Callable;
 import net.minecraft.client.ClientBrandRetriever;
+
+import java.util.concurrent.Callable;
 
 class CallableIsModded implements Callable
 {

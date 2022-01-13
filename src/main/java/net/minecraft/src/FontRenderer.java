@@ -1,5 +1,8 @@
 package net.minecraft.src;
 
+import org.lwjgl.opengl.GL11;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,8 +11,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import javax.imageio.ImageIO;
-import org.lwjgl.opengl.GL11;
 
 public class FontRenderer implements ResourceManagerReloadListener
 {

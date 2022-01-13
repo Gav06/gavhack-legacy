@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.io.UnsupportedEncodingException;
 import org.lwjgl.input.Keyboard;
+
+import java.io.UnsupportedEncodingException;
 
 public class GuiScreenEditOnlineWorld extends GuiScreen
 {

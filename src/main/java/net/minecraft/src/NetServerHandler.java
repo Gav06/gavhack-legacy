@@ -1,12 +1,13 @@
 package net.minecraft.src;
 
+import net.minecraft.server.MinecraftServer;
+
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.MinecraftServer;
 
 public class NetServerHandler extends NetHandler
 {

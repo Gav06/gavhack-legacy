@@ -1,9 +1,9 @@
 package dev.gavhack.features.module.world;
 
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.setting.Setting;
 import dev.gavhack.util.entity.LocalPlayerUtil;
 import dev.gavhack.util.world.BlockUtil;

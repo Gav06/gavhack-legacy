@@ -1,7 +1,8 @@
 package net.minecraft.src;
 
-import java.util.concurrent.Callable;
 import org.lwjgl.opengl.GL11;
+
+import java.util.concurrent.Callable;
 
 class CallableGLInfo implements Callable
 {

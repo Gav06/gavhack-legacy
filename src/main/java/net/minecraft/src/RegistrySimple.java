@@ -1,6 +1,7 @@
 package net.minecraft.src;
 
 import com.google.common.collect.Maps;
+
 import java.util.HashMap;
 import java.util.Map;
 
