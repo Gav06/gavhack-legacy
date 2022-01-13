@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.command.Command;
 import dev.gavhack.features.command.impl.Ping;
+import dev.gavhack.features.command.impl.Toggle;
 import net.minecraft.src.Packet3Chat;
 
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class CommandManager {
 
     public CommandManager() {
         commands = Lists.newArrayList(
-            new Ping()
+            new Ping(),
+            new Toggle()
         );
 
         EventManager.register(this);
