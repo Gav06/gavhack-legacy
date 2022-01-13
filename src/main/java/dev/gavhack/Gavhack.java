@@ -87,9 +87,4 @@ public class Gavhack {
 
         return INSTANCE;
     }
-
-    @EventTarget(value = Priority.HIGHEST)
-    public void onRenderWorldLast(RenderWorldEvent event) {
-        ProjectionUtil.updateMatrix(event.getPartialTicks());
-    }
 }
