@@ -11,6 +11,7 @@ import dev.gavhack.features.module.client.FakePlayer;
 import dev.gavhack.features.module.combat.Criticals;
 import dev.gavhack.features.module.combat.ForceField;
 import dev.gavhack.features.module.combat.KillAura;
+import dev.gavhack.features.module.hud.impl.Welcomer;
 import dev.gavhack.features.module.movement.*;
 import dev.gavhack.features.module.player.MiddleClick;
 import dev.gavhack.features.module.render.*;
@@ -28,6 +29,7 @@ public class ModuleManager {
 
     private final ArrayList<Module> modules;
     private final ArrayList<Module> sortedModules;
+    private final ArrayList<Module> hudModules;
     private final HashMap<String, Module> nameMap;
     private final HashMap<Class<? extends Module>, Module> classMap;
     private final HashMap<Category, List<Module>> categoryMap;
@@ -35,6 +37,7 @@ public class ModuleManager {
     public ModuleManager() {
         this.modules = new ArrayList<>();
         this.sortedModules = new ArrayList<>();
+        this.hudModules = new ArrayList<>();
         this.nameMap = new HashMap<>();
         this.classMap = new HashMap<>();
         this.categoryMap = new HashMap<>();
@@ -49,6 +52,9 @@ public class ModuleManager {
         register(new Criticals());
         register(new ForceField());
         register(new KillAura());
+
+        // hud
+        register(new Welcomer());
 
         // movement modules
         register(new AntiHunger());
@@ -94,6 +100,10 @@ public class ModuleManager {
         }
         module.registerSettings();
         categoryMap.get(module.getCategory()).add(module);
+
+        if (module.getCategory().equals(Category.HUD)) {
+            hudModules.add(module);
+        }
 
         Gavhack.getInstance().getConfigManager().getConfigurables().add(module);
     }

@@ -2,7 +2,7 @@ package dev.gavhack;
 
 import com.darkmagician6.eventapi.EventManager;
 import dev.gavhack.gui.GuiHud;
-import dev.gavhack.gui.Screen;
+import dev.gavhack.gui.clickgui.Screen;
 import dev.gavhack.manager.CommandManager;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;

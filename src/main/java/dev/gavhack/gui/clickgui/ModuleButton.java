@@ -1,6 +1,7 @@
-package dev.gavhack.gui;
+package dev.gavhack.gui.clickgui;
 
 import dev.gavhack.features.module.Module;
+import dev.gavhack.gui.common.Component;
 import dev.gavhack.util.internal.Wrapper;
 import net.minecraft.src.Gui;
 

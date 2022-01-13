@@ -1,4 +1,4 @@
-package dev.gavhack.gui;
+package dev.gavhack.gui.common;
 
 public class DragComponent extends Component {
 

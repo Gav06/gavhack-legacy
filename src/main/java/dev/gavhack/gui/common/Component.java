@@ -1,6 +1,6 @@
-package dev.gavhack.gui;
+package dev.gavhack.gui.common;
 
-public abstract class Component extends Rect implements IComponent{
+public abstract class Component extends Rect implements IComponent {
     public Component(int x, int y, int width, int height) {
         super(x, y, width, height);
     }

@@ -1,12 +1,13 @@
-package dev.gavhack.gui;
+package dev.gavhack.gui.clickgui;
 
 import dev.gavhack.Gavhack;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.gui.setting.BindComponent;
-import dev.gavhack.gui.setting.BooleanComponent;
-import dev.gavhack.gui.setting.EnumComponent;
-import dev.gavhack.gui.setting.NumberComponent;
+import dev.gavhack.gui.common.Component;
+import dev.gavhack.gui.clickgui.setting.BindComponent;
+import dev.gavhack.gui.clickgui.setting.BooleanComponent;
+import dev.gavhack.gui.clickgui.setting.EnumComponent;
+import dev.gavhack.gui.clickgui.setting.NumberComponent;
 import dev.gavhack.setting.Setting;
 import net.minecraft.src.GuiScreen;
 

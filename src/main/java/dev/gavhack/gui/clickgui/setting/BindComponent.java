@@ -1,6 +1,6 @@
-package dev.gavhack.gui.setting;
+package dev.gavhack.gui.clickgui.setting;
 
-import dev.gavhack.gui.Component;
+import dev.gavhack.gui.common.Component;
 import dev.gavhack.setting.Bind;
 import dev.gavhack.util.internal.Wrapper;
 import net.minecraft.src.Gui;
