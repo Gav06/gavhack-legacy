@@ -13,6 +13,7 @@ import dev.gavhack.features.module.combat.ForceField;
 import dev.gavhack.features.module.combat.KillAura;
 import dev.gavhack.features.module.hud.impl.Welcomer;
 import dev.gavhack.features.module.movement.*;
+import dev.gavhack.features.module.player.FastPlace;
 import dev.gavhack.features.module.player.MiddleClick;
 import dev.gavhack.features.module.render.*;
 import dev.gavhack.features.module.world.NoWeather;
@@ -68,12 +69,12 @@ public class ModuleManager {
 
         // player modules
         register(new MiddleClick());
+        register(new FastPlace());
 
         // render modules
         register(new ChestESP());
         register(new Fullbright());
         register(new NameTags());
-        register(new NoSlowDown());
         register(new ChunkBorders());
         register(new PlayerESP());
         register(new Wallhack());
