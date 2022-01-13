@@ -1,12 +1,10 @@
 package dev.gavhack.features.module.render;
 
 import com.darkmagician6.eventapi.EventTarget;
-import dev.gavhack.event.Render2dEvent;
 import dev.gavhack.event.RenderWorldEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.util.math.MathUtil;
-import dev.gavhack.util.math.ProjectionUtil;
 import net.minecraft.src.*;
 import org.lwjgl.opengl.GL11;
 
