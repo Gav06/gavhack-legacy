@@ -38,7 +38,7 @@ public class GuiHud extends Gui implements Wrapper {
         if (!mc.isSingleplayer() && getGavhack().getServerManager().isLagging()) {
             long lagTime = getGavhack().getServerManager().getLagTime() / 1000L;
 
-            String text = String.format("%sServer not responding for %sms", EnumChatFormatting.GREEN, lagTime);
+            String text = String.format("%sServer not responding for %s seconds.", EnumChatFormatting.GREEN, lagTime);
             event.getFont().drawStringWithShadow(text, (event.getResolution().getScaledWidth() / 2) - (event.getFont().getStringWidth(text) / 2), 14, -1);
         }
 
