@@ -1,6 +1,5 @@
 package net.minecraft.src;
 
-import dev.gavhack.Gavhack;
 import dev.gavhack.features.module.render.Chams;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -54,13 +53,9 @@ public abstract class RendererLivingEntity extends Render
 
     public void doRenderLiving(EntityLivingBase par1EntityLivingBase, double par2, double par4, double par6, float par8, float par9)
     {
+
         GL11.glPushMatrix();
         GL11.glDisable(GL11.GL_CULL_FACE);
-
-        if (Gavhack.getInstance().getModuleManager().getModule("Chams").isEnabled()) {
-            GL11.glDisable(GL11.GL_DEPTH);
-            GL11.glDisable(GL11.GL_DEPTH_TEST);
-        }
 
         this.mainModel.onGround = this.renderSwingProgress(par1EntityLivingBase, par9);
 
@@ -267,11 +262,6 @@ public abstract class RendererLivingEntity extends Render
         GL11.glEnable(GL11.GL_TEXTURE_2D);
         OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
 
-        if (Gavhack.getInstance().getModuleManager().getModule("Chams").isEnabled()) {
-            GL11.glEnable(GL11.GL_DEPTH_TEST);
-            GL11.glEnable(GL11.GL_DEPTH);
-        }
-
         GL11.glEnable(GL11.GL_CULL_FACE);
         GL11.glPopMatrix();
         this.passSpecialRender(par1EntityLivingBase, par2, par4, par6);
@@ -286,7 +276,8 @@ public abstract class RendererLivingEntity extends Render
 
         if (!par1EntityLivingBase.isInvisible())
         {
-            this.mainModel.render(par1EntityLivingBase, par2, par3, par4, par5, par6, par7);
+//            this.mainModel.render(par1EntityLivingBase, par2, par3, par4, par5, par6, par7);
+            Chams.renderModelHook(mainModel, par1EntityLivingBase, par2, par3, par4, par5, par6, par7);
         }
         else if (!par1EntityLivingBase.isInvisibleToPlayer(Minecraft.getMinecraft().thePlayer))
         {

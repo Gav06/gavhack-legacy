@@ -1,5 +1,8 @@
 package net.minecraft.src;
 
+import dev.gavhack.Gavhack;
+import dev.gavhack.features.module.render.NoBedrockFog;
+
 public abstract class WorldProvider
 {
     public static final float[] moonPhaseFactors = new float[] {1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F};
@@ -224,6 +227,9 @@ public abstract class WorldProvider
      */
     public boolean getWorldHasVoidParticles()
     {
+        if (Gavhack.getInstance().getModuleManager().getModule(NoBedrockFog.class).isEnabled())
+            return false;
+
         return this.terrainType != WorldType.FLAT && !this.hasNoSky;
     }
 

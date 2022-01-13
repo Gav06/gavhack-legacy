@@ -81,8 +81,8 @@ public class ModuleManager {
         register(new ESP());
         register(new Fullbright());
         register(new NameTags());
-        register(new ChunkBorders());
         register(new Wallhack());
+        register(new NoBedrockFog());
 
         // world modules
         register(new NoWeather());
