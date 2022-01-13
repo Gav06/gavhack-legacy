@@ -57,6 +57,7 @@ public class ModuleManager {
 //        register(new NewChunks());
         register(new FakePlayer());
         register(new NameTags());
+        register(new NoSlowDown());
 
         modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);

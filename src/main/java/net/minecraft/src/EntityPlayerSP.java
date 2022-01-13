@@ -1,6 +1,7 @@
 package net.minecraft.src;
 
 import com.darkmagician6.eventapi.EventManager;
+import dev.gavhack.event.InputUpdateEvent;
 import dev.gavhack.event.PlayerTickEvent;
 
 public class EntityPlayerSP extends AbstractClientPlayer
@@ -151,6 +152,8 @@ public class EntityPlayerSP extends AbstractClientPlayer
                 this.movementInput.moveStrafe *= 0.2F;
                 this.movementInput.moveForward *= 0.2F;
                 this.sprintToggleTimer = 0;
+
+                EventManager.call(new InputUpdateEvent(movementInput));
             }
 
             if (this.movementInput.sneak && this.ySize < 0.2F)
