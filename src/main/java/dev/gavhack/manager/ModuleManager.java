@@ -73,6 +73,7 @@ public class ModuleManager {
         register(new Suffix());
 
         // render modules
+        register(new Chams());
         register(new ChestESP());
         register(new ChunkBorders());
         register(new ESP());
