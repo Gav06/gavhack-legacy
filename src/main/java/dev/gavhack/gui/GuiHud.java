@@ -2,15 +2,15 @@ package dev.gavhack.gui;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.event.PacketEvent;
 import dev.gavhack.event.Render2dEvent;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.Gavhack;
-import net.minecraft.src.EnumChatFormatting;
-import net.minecraft.src.Gui;
-import net.minecraft.src.Minecraft;
+import net.minecraft.src.*;
 
 public class GuiHud extends Gui {
 
+    private long lastPacketTime = -1;
     private final Minecraft mc;
 
     public GuiHud(Minecraft mc) {
@@ -36,8 +36,22 @@ public class GuiHud extends Gui {
             }
         }
 
+        if (!mc.isSingleplayer()) {
+            if (System.currentTimeMillis() - lastPacketTime > 3000L) {
+                final String s = String.format("%sServer not responding: %.1f", EnumChatFormatting.GREEN, (System.currentTimeMillis() - lastPacketTime) / 1000.0);
+                event.getFont().drawStringWithShadow(s, (event.getResolution().getScaledWidth() / 2) - (event.getFont().getStringWidth(s) / 2), 14, -1);
+            }
+        }
+
 //        if (!(mc.currentScreen instanceof GuiManagerDisplayScreen)) {
 //            Gavhack.getInstance().getClickGui().getGuiManager().renderPinned();
 //        }
+    }
+
+    @EventTarget
+    public void onPacketRead(PacketEvent.Receive event) {
+//        if (event.getPacket() instanceof Packet) {
+            lastPacketTime = System.currentTimeMillis();
+//        }/
     }
 }

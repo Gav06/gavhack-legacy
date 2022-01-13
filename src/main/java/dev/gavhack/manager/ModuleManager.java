@@ -59,6 +59,7 @@ public class ModuleManager {
         register(new FakePlayer());
         register(new NameTags());
         register(new NoSlowDown());
+        register(new ChunkBorders());
 
         modules.sort(this::sortAlphabetical);
 

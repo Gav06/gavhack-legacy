@@ -6,8 +6,7 @@ import dev.gavhack.event.PlayerTickEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.setting.Setting;
-import net.minecraft.src.GuiChat;
-import net.minecraft.src.KeyBinding;
+import net.minecraft.src.*;
 import org.lwjgl.input.Keyboard;
 
 public class NoSlowDown extends Module {
@@ -16,8 +15,7 @@ public class NoSlowDown extends Module {
             mc.gameSettings.keyBindRight,
             mc.gameSettings.keyBindLeft,
             mc.gameSettings.keyBindBack,
-            mc.gameSettings.keyBindJump,
-            mc.gameSettings.keyBindSneak
+            mc.gameSettings.keyBindJump
     };
 
     public NoSlowDown() {
@@ -28,8 +26,12 @@ public class NoSlowDown extends Module {
 
     @EventTarget
     public void onPlayerTick(PlayerTickEvent event) {
-        if (guiMove.getValue() && (mc.currentScreen != null && !(mc.currentScreen instanceof GuiChat))) {
-            mc.currentScreen.allowUserInput = true;
+        if (guiMove.getValue() && (mc.currentScreen != null
+                && !(mc.currentScreen instanceof GuiChat
+                || mc.currentScreen instanceof GuiScreenBook
+                || mc.currentScreen instanceof GuiRepair
+                || mc.currentScreen instanceof GuiEditSign))) {
+//            mc.currentScreen.allowUserInput = true;
             for (KeyBinding binding : BINDS) {
                 KeyBinding.setKeyBindState(binding.keyCode, Keyboard.isKeyDown(binding.keyCode));
             }
