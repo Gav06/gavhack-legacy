@@ -17,6 +17,7 @@ import dev.gavhack.features.module.player.MiddleClick;
 import dev.gavhack.features.module.player.Suffix;
 import dev.gavhack.features.module.render.*;
 import dev.gavhack.features.module.world.NoWeather;
+import dev.gavhack.features.module.world.PortalChat;
 import dev.gavhack.features.module.world.Scaffold;
 import dev.gavhack.features.module.world.Timer;
 import net.minecraft.src.Minecraft;
@@ -81,6 +82,7 @@ public class ModuleManager {
 
         // world modules
         register(new NoWeather());
+        register(new PortalChat());
         register(new Scaffold());
         register(new Timer());
 
