@@ -6,7 +6,6 @@ import dev.gavhack.event.PacketEvent;
 import dev.gavhack.util.internal.Timer;
 import dev.gavhack.util.internal.Wrapper;
 import net.minecraft.src.GuiPlayerInfo;
-import net.minecraft.src.Packet4UpdateTime;
 
 import java.util.Optional;
 
@@ -18,10 +17,8 @@ public class ServerManager implements Wrapper {
     }
 
     @EventTarget
-    public void onPacketSend(PacketEvent.Send event) {
-        if (event.getPacket() instanceof Packet4UpdateTime) {
-            lagTimer.reset();
-        }
+    public void onPacketReceive(PacketEvent.Receive event) {
+        lagTimer.reset();
     }
 
     public int getLatency(String username) {
@@ -33,10 +30,10 @@ public class ServerManager implements Wrapper {
     }
 
     public long getLagTime() {
-        return isLagging() ? 0L : lagTimer.getTimeMs();
+        return isLagging() ? lagTimer.getTimeMs() : 0L;
     }
 
     public boolean isLagging() {
-        return lagTimer.passed(1500L);
+        return lagTimer.passed(getLatency(mc.thePlayer.getEntityName()) + 500L);
     }
 }
