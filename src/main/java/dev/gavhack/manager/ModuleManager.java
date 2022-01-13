@@ -14,6 +14,7 @@ import dev.gavhack.features.module.combat.KillAura;
 import dev.gavhack.features.module.hud.impl.Welcomer;
 import dev.gavhack.features.module.movement.*;
 import dev.gavhack.features.module.player.MiddleClick;
+import dev.gavhack.features.module.player.Suffix;
 import dev.gavhack.features.module.render.*;
 import dev.gavhack.features.module.world.NoWeather;
 import dev.gavhack.features.module.world.Scaffold;
@@ -68,6 +69,7 @@ public class ModuleManager {
 
         // player modules
         register(new MiddleClick());
+        register(new Suffix());
 
         // render modules
         register(new ChestESP());
