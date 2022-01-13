@@ -12,9 +12,7 @@ import dev.gavhack.manager.config.ConfigManager;
 import dev.gavhack.manager.friend.FriendManager;
 import dev.gavhack.manager.inventory.InventoryManager;
 import dev.gavhack.util.internal.Wrapper;
-import dev.gavhack.util.math.ProjectionUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Gavhack {
