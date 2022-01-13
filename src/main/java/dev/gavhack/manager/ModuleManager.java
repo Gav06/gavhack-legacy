@@ -74,10 +74,10 @@ public class ModuleManager {
 
         // render modules
         register(new ChestESP());
+        register(new ChunkBorders());
+        register(new ESP());
         register(new Fullbright());
         register(new NameTags());
-        register(new ChunkBorders());
-        register(new PlayerESP());
         register(new Wallhack());
 
         // world modules
