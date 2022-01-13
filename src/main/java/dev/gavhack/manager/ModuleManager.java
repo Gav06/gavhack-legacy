@@ -2,6 +2,7 @@ package dev.gavhack.manager;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
+import dev.gavhack.Gavhack;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
 import dev.gavhack.event.KeyPressEvent;
@@ -57,8 +58,6 @@ public class ModuleManager {
 //        register(new NewChunks());
         register(new FakePlayer());
         register(new NameTags());
-
-        modules.forEach(Module::registerSettings);
         modules.sort(this::sortAlphabetical);
 
         for (Category category : Category.values()) {
@@ -76,8 +75,10 @@ public class ModuleManager {
         if (!categoryMap.containsKey(module.getCategory())) {
             categoryMap.put(module.getCategory(), new ArrayList<>());
         }
-
+        module.registerSettings();
         categoryMap.get(module.getCategory()).add(module);
+
+        Gavhack.getInstance().getConfigManager().getConfigurables().add(module);
     }
 
     private int sortAlphabetical(Module module1, Module module2) {

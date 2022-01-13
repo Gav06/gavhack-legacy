@@ -8,11 +8,13 @@ import dev.gavhack.gui.GuiHud;
 import dev.gavhack.gui.Screen;
 import dev.gavhack.manager.InteractionManager;
 import dev.gavhack.manager.ModuleManager;
+import dev.gavhack.manager.config.ConfigManager;
 import dev.gavhack.manager.friend.FriendManager;
 import dev.gavhack.manager.inventory.InventoryManager;
 import dev.gavhack.util.internal.Wrapper;
 import dev.gavhack.util.math.ProjectionUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Gavhack {
@@ -21,6 +23,7 @@ public class Gavhack {
 
     private static Gavhack INSTANCE;
 
+    private final ConfigManager configManager;
     private final ModuleManager moduleManager;
     private final InteractionManager interactionManager;
     private final InventoryManager inventoryManager;
@@ -35,6 +38,7 @@ public class Gavhack {
         INSTANCE = this;
 
         // managers
+        configManager = new ConfigManager();
         moduleManager = new ModuleManager();
         interactionManager = new InteractionManager();
         inventoryManager = new InventoryManager();
@@ -45,6 +49,13 @@ public class Gavhack {
         clickGui = new Screen();
 
         EventManager.register(this);
+
+        configManager.loadAllSafe();
+        Runtime.getRuntime().addShutdownHook(new Thread(configManager::saveAllSafe));
+    }
+
+    public ConfigManager getConfigManager() {
+        return configManager;
     }
 
     public ModuleManager getModuleManager() {
