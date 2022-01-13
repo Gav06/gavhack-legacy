@@ -18,7 +18,7 @@ public class NameTags extends Module {
     }
 
     @EventTarget
-    public void onRenderPre(RenderWorldEvent event){
+    public void onRenderWorld(RenderWorldEvent event){
         for (EntityPlayer player : mc.theWorld.playerEntities) {
             if (player == mc.thePlayer)
                 continue;
@@ -39,7 +39,6 @@ public class NameTags extends Module {
                     x - RenderManager.renderPosX,
                     y + player.height + 0.3 - RenderManager.renderPosY,
                     z - RenderManager.renderPosZ);
-            GL11.glNormal3f(0f, 1f, 0f);
             GL11.glRotatef(-RenderManager.instance.playerViewY, 0f, 1f, 0f);
             GL11.glRotatef(RenderManager.instance.playerViewX, 1f, 0f, 0f);
             GL11.glScaled(-scale, -scale, scale);
