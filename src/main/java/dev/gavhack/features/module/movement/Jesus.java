@@ -47,6 +47,9 @@ public class Jesus extends Module {
     }
 
     public static boolean shouldJesus() {
+        if (mc.thePlayer == null)
+            return false;
+
         if (dip.getValue() && mc.thePlayer.fire != 0) {
             return false;
         }

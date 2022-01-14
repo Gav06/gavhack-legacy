@@ -5,9 +5,11 @@ import com.darkmagician6.eventapi.EventTarget;
 import com.google.common.collect.Lists;
 import dev.gavhack.event.PacketEvent;
 import dev.gavhack.features.command.Command;
-import dev.gavhack.features.command.impl.Ping;
-import dev.gavhack.features.command.impl.Toggle;
+import dev.gavhack.util.internal.ChatUtil;
 import net.minecraft.src.Packet3Chat;
+
+import dev.gavhack.features.command.impl.*;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +21,10 @@ public class CommandManager {
 
     public CommandManager() {
         commands = Lists.newArrayList(
-            new Ping(),
-            new Toggle()
+                new Ping(),
+                new Toggle(),
+                new Help(),
+                new BookBot()
         );
 
         EventManager.register(this);
@@ -42,19 +46,22 @@ public class CommandManager {
             return;
         }
 
-        commands.stream()
+        Command cmd = commands.stream()
                 .filter((command) -> command.isTrigger(args[0]))
-                .findFirst()
-                .ifPresent((command) -> {
-                    try {
-                        command.run(Arrays.asList(args).subList(1, args.length));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                });
+                .findFirst().orElse(null);
+
+        if (cmd != null) {
+            cmd.run(Arrays.asList(args).subList(1, args.length));
+        } else {
+            ChatUtil.sendPrefixed("Unable to find command, try \"" + prefix + "help\" for a list of commands");
+        }
     }
 
     public String getPrefix() {
         return prefix;
+    }
+
+    public ArrayList<Command> getCommands() {
+        return commands;
     }
 }

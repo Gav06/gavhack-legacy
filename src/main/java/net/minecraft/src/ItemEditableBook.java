@@ -23,7 +23,7 @@ public class ItemEditableBook extends Item
         else
         {
             String var1 = par0NBTTagCompound.getString("title");
-            return var1 != null && var1.length() <= 16 ? par0NBTTagCompound.hasKey("author") : false;
+            return var1 != null && var1.length() <= 16 && par0NBTTagCompound.hasKey("author");
         }
     }
 
@@ -55,7 +55,7 @@ public class ItemEditableBook extends Item
 
             if (var6 != null)
             {
-                par3List.add(EnumChatFormatting.GRAY + String.format(StatCollector.translateToLocalFormatted("book.byAuthor", new Object[] {var6.data}), new Object[0]));
+                par3List.add(EnumChatFormatting.GRAY + String.format(StatCollector.translateToLocalFormatted("book.byAuthor", var6.data), new Object[0]));
             }
         }
     }

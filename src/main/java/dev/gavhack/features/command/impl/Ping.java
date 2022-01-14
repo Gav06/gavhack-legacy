@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Ping extends Command {
     public Ping() {
-        super(Arrays.asList("ping", "latency"), "Displays your latency to the server");
+        super(Arrays.asList("ping", "latency"), "Shows your ping");
     }
 
     @Override
