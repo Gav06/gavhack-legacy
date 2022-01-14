@@ -6,22 +6,15 @@ import dev.gavhack.Gavhack;
 import dev.gavhack.event.KeyPressEvent;
 import dev.gavhack.features.module.Category;
 import dev.gavhack.features.module.Module;
-import dev.gavhack.features.module.client.ClickGui;
-import dev.gavhack.features.module.client.FakePlayer;
-import dev.gavhack.features.module.combat.Criticals;
-import dev.gavhack.features.module.combat.ForceField;
-import dev.gavhack.features.module.combat.KillAura;
-import dev.gavhack.features.module.hud.impl.Welcomer;
-import dev.gavhack.features.module.movement.*;
-import dev.gavhack.features.module.player.FastPlace;
-import dev.gavhack.features.module.player.MiddleClick;
-import dev.gavhack.features.module.player.Suffix;
-import dev.gavhack.features.module.render.*;
-import dev.gavhack.features.module.world.NoWeather;
-import dev.gavhack.features.module.world.PortalChat;
-import dev.gavhack.features.module.world.Scaffold;
-import dev.gavhack.features.module.world.Timer;
 import net.minecraft.src.Minecraft;
+
+import dev.gavhack.features.module.client.*;
+import dev.gavhack.features.module.combat.*;
+import dev.gavhack.features.module.hud.impl.*;
+import dev.gavhack.features.module.movement.*;
+import dev.gavhack.features.module.player.*;
+import dev.gavhack.features.module.render.*;
+import dev.gavhack.features.module.world.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -52,6 +45,7 @@ public class ModuleManager {
         register(new FakePlayer());
 
         // combat modules
+        register(new AntiKnockback());
         register(new Criticals());
         register(new ForceField());
         register(new KillAura());
@@ -61,7 +55,6 @@ public class ModuleManager {
 
         // movement modules
         register(new AntiHunger());
-        register(new AntiKnockback());
         register(new Jesus());
         register(new NoFall());
         register(new NoSlowDown());

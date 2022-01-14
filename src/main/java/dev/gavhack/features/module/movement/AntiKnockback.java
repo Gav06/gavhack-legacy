@@ -10,7 +10,7 @@ import net.minecraft.src.Packet60Explosion;
 public class AntiKnockback extends Module {
 
     public AntiKnockback() {
-        super("AntiKnockback", Category.MOVEMENT);
+        super("AntiKnockback", Category.COMBAT);
     }
 
     @EventTarget
