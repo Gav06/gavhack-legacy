@@ -60,12 +60,8 @@ public class BookBot extends Command {
             mc.thePlayer.getHeldItem().stackTagCompound.getTagList("pages").appendTag(new NBTTagString(String.valueOf(i), line.toString()));
         }
 
-        mc.thePlayer.getHeldItem().setTagInfo("author", new NBTTagString("author", mc.thePlayer.getCommandSenderName()));
-        mc.thePlayer.getHeldItem().setTagInfo("title", new NBTTagString("title", title));
-        mc.thePlayer.getHeldItem().itemID = Item.writableBook.itemID;
-
         GuiScreenBook bookScreen = new GuiScreenBook(mc.thePlayer, mc.thePlayer.getHeldItem(), true);
-        bookScreen.sendBookToServer(false);
+        bookScreen.sendBookToServer(true, title, mc.thePlayer.getCommandSenderName());
 
         ChatUtil.sendPrefixed("Wrote random book successfully");
     }

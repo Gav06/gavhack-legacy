@@ -126,7 +126,11 @@ public class GuiScreenBook extends GuiScreen
         }
     }
 
-    public void sendBookToServer(boolean par1)
+    public void sendBookToServer(boolean par1) {
+        sendBookToServer(par1, null, null);
+    }
+
+    public void sendBookToServer(boolean par1, String title, String author)
     {
         if (this.bookIsUnsigned && this.bookModified)
         {
@@ -159,8 +163,10 @@ public class GuiScreenBook extends GuiScreen
                 if (par1)
                 {
                     var8 = "MC|BSign";
-                    this.itemstackBook.setTagInfo("author", new NBTTagString("author", this.editingPlayer.getCommandSenderName()));
-                    this.itemstackBook.setTagInfo("title", new NBTTagString("title", this.bookTitle.trim()));
+                    this.itemstackBook.setTagInfo("author", new NBTTagString("author",
+                            author != null ? author : this.editingPlayer.getCommandSenderName()));
+                    this.itemstackBook.setTagInfo("title", new NBTTagString("title",
+                            title != null ? title : this.bookTitle.trim()));
                     this.itemstackBook.itemID = Item.writtenBook.itemID;
                 }
 
