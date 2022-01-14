@@ -133,6 +133,9 @@ public abstract class Module implements Wrapper, Configurable {
         bind.setValue(jsonObject.get("bind").getAsInt());
 
         for (Setting setting : settings) {
+            if (!jsonObject.has(setting.getName()))
+                continue;
+
             if (setting.getValue() instanceof Enum<?>) {
                 Enum enumObj = EnumHelper.getEnumFromName(jsonObject.get(setting.getName()).getAsString(), (Class<? extends Enum>) setting.getValue().getClass());
                 if (enumObj != null) {
