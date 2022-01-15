@@ -24,7 +24,8 @@ public class CommandManager {
                 new Ping(),
                 new Toggle(),
                 new Help(),
-                new BookBot()
+                new BookBot(),
+                new Throw()
         );
 
         EventManager.register(this);
